@@ -1,7 +1,7 @@
 ---
 name: Monorepo with Turborepo
 slug: monorepo-turborepo
-description: Learn to implement a monorepo with a single Next.js site that has installed two local packages.
+description: A monorepo with a Next.js login page which will be managed by Azure AD B2C and another Next.js site that will use the login page.
 framework: Next.js
 useCase:
   - Monorepos
