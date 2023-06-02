@@ -7,7 +7,7 @@ const Home = () => {
     <div id="signin_container">
       {/* Add SEO to the component of choice to add/modify custom meta data */}
       <div id="background_branding_container" data-tenant-branding-background-color="true">
-        <Image src={Illustration} alt="sign-in sign-up illustration" priority />
+        <Image src='https://b2c-next-workspace-2c6ji9kfv-coderebus-dot-com.vercel.app/_next/static/media/OTP-Authentication-Security.7bf3ec73.svg' alt="sign-in sign-up illustration" priority />
       </div>
       <div className="panel" id="panel">
         <table className="panel_layout" role="presentation">
