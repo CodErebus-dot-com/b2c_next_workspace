@@ -24,7 +24,7 @@ const Home = () => {
                   <div className="inner_container">
                     <div className="api_container normaltext">
                       {/* <img data-tenant-branding-logo="true" alt="Genesisx Logo" /> */}
-                      <Image alt="GenesisX logo" />
+                      <Image data-tenant-branding-logo="true" alt="GenesisX logo" />
                       <div id="api" role="main"></div>
                     </div>
                   </div>
