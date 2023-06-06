@@ -13,7 +13,12 @@
   "dependencies": {
     "@acme/ui": "workspace:*",
     "@acme/utils": "workspace:*",
+    "@chakra-ui/next-js": "^2.1.4",
+    "@chakra-ui/react": "^2.7.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@vercel/examples-ui": "^1.0.4",
+    "framer-motion": "^10.12.16",
     "next": "canary",
     "react": "latest",
     "react-dom": "latest"
