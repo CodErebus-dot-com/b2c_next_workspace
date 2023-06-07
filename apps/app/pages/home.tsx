@@ -17,7 +17,7 @@ const Home = () => {
           <Image data-tenant-branding-background="true" alt="sign-in sign-up illustration" />
           {/* <Image src='https://b2c-next-workspace-2c6ji9kfv-coderebus-dot-com.vercel.app/_next/static/media/OTP-Authentication-Security.7bf3ec73.svg' alt="sign-in sign-up illustration" priority /> */}
         </div>
-        <Flex h="100%" w="60%" direction="column">
+        <Flex h="100%" w="60%" direction="column" className="panel" id="panel">
           <table className={styles.panel_layout} role="presentation">
             <tbody>
               <tr className={styles.panel_layout_row}>
@@ -26,7 +26,7 @@ const Home = () => {
                   <div className={styles.inner_container}>
                     <div className={`${styles.api_container} ${styles.normaltext}`}>
                       {/* <img data-tenant-branding-logo="true" alt="Genesisx Logo" /> */}
-                      <Image data-tenant-branding-logo="true" alt="GenesisX logo" />
+                      <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
                       <div id="api" role="main"></div>
                     </div>
                   </div>

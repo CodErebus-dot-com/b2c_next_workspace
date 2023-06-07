@@ -9,6 +9,8 @@ export default css.global`
     height: 100vh;
     width: 100vw;
     background: linear-gradient(to right, #0f3e83, #0078d4, #3079ed, #00abec);
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
   }
   
   .illustration {
@@ -22,6 +24,7 @@ export default css.global`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-left: 1px solid #fff;
   }
   
   .inner_container {
@@ -277,44 +280,12 @@ export default css.global`
     font-family: 'Segoe UI', Segoe, SegoeUI-Regular-final, Tahoma, Helvetica, Arial, sans-serif;
   }
 
-  div#background_branding_container,
-  div#background_page_overlay {
-    width: 100%;
-    z-index: 0;
-    position: fixed;
-    left: 0;
-    overflow: hidden;
-    top: 0;
-  }
-
-  div#background_branding_container {
-    background: #00abec;
-    height: 100%;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-
-  *,
-  .panel,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    z-index: -999;
-  }
-
   .panel,
   .panel_layout,
   .panel_layout_row,
   body,
   html {
     height: 100%;
-  }
-
-  #panel {
-    border-left: 1px solid #fff;
   }
 
   a {
