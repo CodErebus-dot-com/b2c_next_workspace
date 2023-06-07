@@ -1,4 +1,7 @@
-#signin_container {
+import css from 'styled-jsx/css';
+
+export default css.global`
+  #signin_container {
     display: flex;
   }
   
@@ -24,3 +27,4 @@
   .inner_container {
     margin-top: 5em;
   }
+`

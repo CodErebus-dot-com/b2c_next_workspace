@@ -21,7 +21,8 @@
     "framer-motion": "^10.12.16",
     "next": "canary",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

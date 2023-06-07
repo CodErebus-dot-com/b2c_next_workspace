@@ -49,6 +49,9 @@ importers:
       react-dom:
         specifier: latest
         version: 18.2.0(react@18.2.0)
+      styled-jsx:
+        specifier: ^5.1.2
+        version: 5.1.2(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: ^18.0.0
@@ -3744,6 +3747,23 @@ packages:
 
   /styled-jsx@5.1.1(react@18.2.0):
     resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
+    engines: {node: '>= 12.0.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      babel-plugin-macros: '*'
+      react: '>= 16.8.0 || 17.x.x || ^18.0.0-0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      babel-plugin-macros:
+        optional: true
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+    dev: false
+
+  /styled-jsx@5.1.2(react@18.2.0):
+    resolution: {integrity: sha512-FI5r0a5ED2/+DSdG2ZRz3a4FtNQnKPLadauU5v76a9QsscwZrWggQKOmyxGGP5EWKbyY3bsuWAJYzyKaDAVAcw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
       '@babel/core': '*'
