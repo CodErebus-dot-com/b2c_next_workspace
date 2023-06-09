@@ -444,8 +444,8 @@ export default css.global`
   }
   
   // DummyApi component
- 
-    #dummy-api {
+  ${process.env.NEXT_PUBLIC_NODE_ENV === 'production' && 
+    `#dummy-api {
       visibility: none;
       height: 0;
       widht: 0;
@@ -453,7 +453,6 @@ export default css.global`
       position: absolute;
       top: -9999px;
       left: -9999px;
-    }
-  }
-  
+    }`
+  } 
 `
