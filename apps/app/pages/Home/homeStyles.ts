@@ -1,7 +1,5 @@
 import css from 'styled-jsx/css';
 
-const NODE_ENV = process.env['NEXT_PUBLIC_NODE_ENV']
-
 export default css.global`
   #signin_container {
     display: flex;
