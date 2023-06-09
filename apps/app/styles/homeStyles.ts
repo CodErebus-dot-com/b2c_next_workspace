@@ -444,7 +444,7 @@ export default css.global`
   }
   
   // DummyApi component
-  ${process.env.NEXT_PUBLIC_NODE_ENV === 'production' && 
+  ${process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && 
     `#dummy-api {
       visibility: none;
       height: 0;

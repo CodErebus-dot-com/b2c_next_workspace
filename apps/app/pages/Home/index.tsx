@@ -53,7 +53,7 @@ const Home = () => {
             }
             
             applyClassNames(apiWrapper, dummyApiWrapper);
-            ${process.env.NEXT_PUBLIC_NODE_ENV === 'production' && `removeDummyApi(dummyApiWrapper);`}
+            ${process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && `removeDummyApi(dummyApiWrapper);`}
           }
           
           function applyClassNames(apiNode, dummyApiNode) {
