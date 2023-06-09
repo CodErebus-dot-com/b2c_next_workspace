@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
 import { theme } from '../_app'
-import homeStyles from './homeStyles';
+import homeStyles from '../../styles/homeStyles';
 import Api from "../../app/api";
 import DummyApi from "../../app/dummyApi";
 import Script from 'next/script';
