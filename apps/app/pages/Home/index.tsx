@@ -4,7 +4,6 @@
 import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
 import { theme } from '../_app'
 import homeStyles from './homeStyles';
-import styles from '../../styles/styl.module.css';
 import Api from "../../app/api";
 import DummyApi from "../../app/dummyApi";
 import Script from 'next/script';
@@ -18,13 +17,13 @@ const Home = () => {
           <Image data-tenant-branding-background="true" alt="sign-in sign-up illustration" />
         </Box>
         <Flex h="100%" w="60%" direction="column" className="panel" id="panel">
-          <table className={styles.panel_layout} role="presentation">
+          <table role="presentation">
             <tbody>
-              <tr className={styles.panel_layout_row}>
-                <td id={styles.panel_left} />
-                <td id={styles.panel_center}>
-                  <div className={styles.inner_container}>
-                    <div className={`${styles.api_container} ${styles.normaltext}`}>
+              <tr>
+                <td/>
+                <td>
+                  <div>
+                    <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
                       <Api />
                       <DummyApi />
