@@ -41,7 +41,7 @@ const Home = () => {
         {homeStyles}
       </style>
 
-      <Script id="my-script" strategy='beforeInteractive'>
+      <Script id="my-script" strategy='lazyOnload'>
         {`
           function appendClassNamesFromDummyApiToApi() {
             const apiWrapper = document.getElementById("api");
