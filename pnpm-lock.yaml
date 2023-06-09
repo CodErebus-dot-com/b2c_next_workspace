@@ -16,12 +16,6 @@ importers:
 
   apps/app:
     dependencies:
-      '@acme/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      '@acme/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
       '@chakra-ui/next-js':
         specifier: ^2.1.4
         version: 2.1.4(@chakra-ui/react@2.7.0)(@emotion/react@11.11.0)(next@13.4.5-canary.6)(react@18.2.0)
