@@ -41,7 +41,7 @@ const Home = () => {
         {homeStyles}
       </style>
 
-      <Script id="my-script">
+      <Script id="my-script" strategy='afterInteractive'>
         {`
           function appendClassNamesFromDummyApiToApi() {
             const apiWrapper = document.getElementById("api");
