@@ -24,3 +24,14 @@
 .inner_container {
   margin-top: 5em;
 }
+
+.rememberMe input[type=checkbox] {
+  vertical-align: middle;
+  position: relative;
+  bottom: -2.5px;
+  width:13px;
+}
+
+.rememberMe label {
+  display: inline-block
+}

@@ -1,5 +1,7 @@
 import css from 'styled-jsx/css';
 
+const NODE_ENV = process.env.NODE_ENV
+
 export default css.global`
   #signin_container {
     display: flex;
@@ -441,5 +443,22 @@ export default css.global`
       flex: none;
       margin-right: 0;
     }
-  }  
+  }
+  
+  // DummyApi component
+  ${
+    NODE_ENV === 'production' && 
+    `
+      #dummy-api {
+        visibility: none;
+        height: 0;
+        widht: 0;
+        z-index: -9999;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+    `
+  }
+  
 `
