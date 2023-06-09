@@ -446,19 +446,16 @@ export default css.global`
   }
   
   // DummyApi component
-  ${
-    NODE_ENV === 'production' && 
-    `
-      #dummy-api {
-        visibility: none;
-        height: 0;
-        widht: 0;
-        z-index: -9999;
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-    `
+ 
+    #dummy-api {
+      visibility: none;
+      height: 0;
+      widht: 0;
+      z-index: -9999;
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
   }
   
 `
