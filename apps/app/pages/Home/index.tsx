@@ -41,8 +41,12 @@ const Home = () => {
         {homeStyles}
       </style>
 
-      <Script id="my-script" strategy='lazyOnload'>
+      <Script id="my-script">
         {`
+          document.addEventListener("DOMContentLoaded", function() {
+            addChakraClassNames();
+          });
+
           function appendClassNamesFromDummyApiToApi() {
             const apiWrapper = document.getElementById("api");
             const dummyApiWrapper = document.getElementById("dummy-api");
