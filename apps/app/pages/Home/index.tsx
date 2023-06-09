@@ -1,5 +1,3 @@
-"use client";
-
 /* eslint-disable @next/next/no-img-element */
 import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
 import { theme } from '../_app'
