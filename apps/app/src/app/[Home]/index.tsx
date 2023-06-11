@@ -1,11 +1,11 @@
-"use server";
+"use server"
 
 /* eslint-disable @next/next/no-img-element */
 import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
-import { theme } from '../_app'
-import homeStyles from '../../styles/homeStyles';
-import Api from "../../app/api";
-import DummyApi from "../../app/dummyApi";
+import { theme } from '../../../pages/_app'
+import homeStyles from '../../../styles/homeStyles';
+import Api from "../api";
+import DummyApi from "../dummyApi";
 import Script from 'next/script';
 
 const Home = () => {

@@ -1,4 +1,4 @@
-import CustomForm from "../components/CustomForm"
+import CustomForm from "../../components/CustomForm"
 
 const DummyApi = () => {
   return (

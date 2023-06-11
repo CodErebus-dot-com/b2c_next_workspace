@@ -40,10 +40,10 @@ const Base = () => {
         {styles}
       </style>
 
-      <Script id="my-script">
+      <Script id='my-script' strategy='beforeInteractive'>
         {`
           document.addEventListener("DOMContentLoaded", function() {
-            addChakraClassNames();
+            appendClassNamesFromDummyApiToApi();
           });
 
           function appendClassNamesFromDummyApiToApi() {
@@ -85,8 +85,6 @@ const Base = () => {
               dummyApiWrapper.remove();
             }
           }
-
-          appendClassNamesFromDummyApiToApi();
         `}
       </Script>
       Home
