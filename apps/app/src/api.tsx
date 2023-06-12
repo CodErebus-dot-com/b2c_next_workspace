@@ -1,12 +1,7 @@
-
-// const Api = () => <div id="api" role="main"></div>
-
-
-// Temporary, should be removed.
 const TestApi = () => {
 	return (
 		// <div className="container">
-		// 	<p className="para-1">Para 1</p>
+		// 	<p>Para 1</p>
 		// 	<p className="para-2">Para 2</p>
 		// </div>
 
@@ -58,7 +53,7 @@ const TestApi = () => {
 				</p>
 				</div>
 			</form>
-			</div>
+		</div>
 	)
 }
 const Api = () => {

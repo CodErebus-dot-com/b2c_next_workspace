@@ -73,7 +73,7 @@ const Home = () => {
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
                       <Api />
-                      { showDummyApi && <DummyApi /> }
+                      <DummyApi />
                     </div>
                   </div>
                 </td>
