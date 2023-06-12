@@ -1,4 +1,4 @@
-import Home from '../src/app/[Home]'
+import Home from '../src/Home'
 
 export default function Index() {
 
