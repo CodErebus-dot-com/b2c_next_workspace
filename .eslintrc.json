@@ -1,4 +1,5 @@
 {
   "root": true,
-  "extends": ["next/core-web-vitals", "turbo"]
+  "extends": ["next/core-web-vitals", "turbo"],
+  "rules": { "react/no-unescaped-entities": 0 }
 }

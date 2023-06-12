@@ -65,7 +65,7 @@ const Api = () => {
 	return (
 		<div id="api">
 		{
-			process.env.NEXT_PUBLIC_NODE_ENV === 'development' && <TestApi />
+			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />
 		}
 		</div>
 	)
