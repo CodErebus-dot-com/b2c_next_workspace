@@ -2,7 +2,7 @@ import Script from 'next/script'
 
 const CustomScript = () => {
   return (
-    <Script id='my-script'>
+    <Script id='my-script' strategy='afterInteractive'>
     {`
       function appendClassNamesFromDummyApiToApi() {
         const apiWrapper = document.getElementById("api");

@@ -1,17 +1,17 @@
 'use client'
 
 /* eslint-disable @next/next/no-img-element */
-import { Box, Flex, Image } from '@chakra-ui/react'
+import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
 // import { theme } from '../../../pages/_app'
-import styles from './styles';
+// import styles from './styles';
 import Api from "../Api";
 import DummyApi from '../DummyApi';
-import CustomScript from './script';
+// import CustomScript from './script';
 
 const Base = () => {
   return (
     <>
-      {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
+      <ColorModeScript />
       <Flex>  
         <Box id="background_branding_container" data-tenant-branding-background-color="true">
           <Image data-tenant-branding-background="true" alt="sign-in sign-up illustration" />
@@ -35,13 +35,6 @@ const Base = () => {
           </table>
         </Flex>
       </Flex>
-
-      <style jsx>
-        {styles}
-      </style>
-
-
-      <CustomScript />
     </>
   )
 }
