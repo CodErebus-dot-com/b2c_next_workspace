@@ -2,12 +2,8 @@ import Script from 'next/script'
 
 const CustomScript = () => {
   return (
-    <Script id='my-script' strategy='beforeInteractive'>
+    <Script id='my-script'>
     {`
-      document.addEventListener("DOMContentLoaded", function() {
-        appendClassNamesFromDummyApiToApi();
-      });
-
       function appendClassNamesFromDummyApiToApi() {
         const apiWrapper = document.getElementById("api");
         const dummyApiWrapper = document.getElementById("dummy-api");
@@ -47,6 +43,8 @@ const CustomScript = () => {
           dummyApiWrapper.remove();
         }
       }
+
+      appendClassNamesFromDummyApiToApi();
     `}
   </Script>
   )
