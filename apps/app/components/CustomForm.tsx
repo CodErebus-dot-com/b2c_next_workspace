@@ -19,7 +19,7 @@ const CustomForm = () => {
             <Box>
               <Text></Text>
             </Box>
-            <Input type="email" id="email" />
+            <Input type="email" />
           </Box>
           <Box>
             <Box>
@@ -29,7 +29,7 @@ const CustomForm = () => {
             <Box>
               <Text></Text>
             </Box>
-            <Input type="password"  id="password"/>
+            <Input type="password" />
           </Box>
           <Box></Box>
 
