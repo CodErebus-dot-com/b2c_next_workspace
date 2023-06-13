@@ -102,17 +102,21 @@
 import { ColorModeScript, Box, Flex, Image } from '@chakra-ui/react'
 import { theme } from '../../pages/_app'
 import homeStyles from '../../styles/homeStyles';
-import Api from "../api";
-import DummyApi from "../dummyApi";
-import { useEffect, useState } from 'react';
+import Api from '../api';
+import DummyApi from '../dummyApi';
+import { useEffect, useState, useRef } from 'react';
 
 const Home = () => {
   const [showDummyApi, setShowDummyApi] = useState(true);
+  const apiRef = useRef<HTMLDivElement>(null)
+  const dummyApiRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const appendClassNamesFromDummyApiToApi = () => {
-      const apiWrapper = document.getElementById("api");
-      const dummyApiWrapper = document.getElementById("dummy-api");
+      const apiWrapper = apiRef.current;
+      const dummyApiWrapper = dummyApiRef.current;
+      // const apiWrapper = document.getElementById("api");
+      // const dummyApiWrapper = document.getElementById("dummy-api");
       
       if (!apiWrapper || !dummyApiWrapper) {
         console.error("Invalid IDs for API or DummyAPI");
@@ -120,7 +124,7 @@ const Home = () => {
       }
       
       applyClassNames(apiWrapper, dummyApiWrapper);
-    };
+    }
     
     const applyClassNames = (apiNode: any, dummyApiNode: any) => {
       if (
@@ -141,17 +145,11 @@ const Home = () => {
           applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
         }
       }
-    };
-  
-    const removeDummyApi = (dummyApiWrapper: any) => {      
-      if (dummyApiWrapper) {
-        dummyApiWrapper.remove();
-      }
-    };
+    }
   
     appendClassNamesFromDummyApiToApi();
     setShowDummyApi(false);
-  }, []);
+  }, [])
 
   return (
     <>
@@ -169,8 +167,8 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api />
-                      { showDummyApi && <DummyApi /> }
+                      <Api ref={apiRef} />
+                      { showDummyApi && <DummyApi ref={dummyApiRef} /> }
                       {/* <DummyApi /> */}
                     </div>
                   </div>

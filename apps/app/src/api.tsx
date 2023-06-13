@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 const TestApi = () => {
 	return (
 		// <div className="container">
@@ -56,14 +57,14 @@ const TestApi = () => {
 		</div>
 	)
 }
-const Api = () => {
+const Api = forwardRef<HTMLDivElement, {}>(function Api(_,ref) {
 	return (
-		<div id="api">
+		<div id="api" ref={ref} role="main" >
 		{
 			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />
 		}
 		</div>
 	)
-}
+})
 
 export default Api
