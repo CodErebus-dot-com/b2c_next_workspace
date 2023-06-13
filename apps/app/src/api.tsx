@@ -84,19 +84,19 @@ const TestApi = () => {
 
 
 const Api = forwardRef<HTMLDivElement, { onRenderTestApi: () => void }>(function Api({ onRenderTestApi }, ref) {
-	console.log(process.env.NEXT_PUBLIC_NODE_ENV)
+	console.log(process.env['NEXT_PUBLIC_NODE_ENV'])
 	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
 
-	if (process.env['NEXT_PUBLIC_NODE_ENV'] === 'development') {
-		setTimeout(() => {
-		setShouldRenderTestApi(true);
-		onRenderTestApi(); // Notify the parent component that TestApi has been rendered
-		}, 1000);
-	}
+	// if (process.env['NEXT_PUBLIC_NODE_ENV'] === 'development') {
+	// 	setTimeout(() => {
+	// 		setShouldRenderTestApi(true);
+	// 		onRenderTestApi(); // Notify the parent component that TestApi has been rendered
+	// 	}, 1000);
+	// }
 
 	return (
 		<div id="api" ref={ref} role="main">
-		{process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />}
+		{/* {process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />} */}
 		</div>
 	);
 });
