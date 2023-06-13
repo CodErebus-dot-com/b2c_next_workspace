@@ -184,13 +184,22 @@ const Home = () => {
         {homeStyles}
       </style>
 
-      <Script id='test-script' strategy='beforeInteractive'>
+      {/* <Script id='test-script' strategy='beforeInteractive'>
         {
           `
             console.log('test script')
           `
         }
-      </Script>
+      </Script> */}
+
+      <script
+        id="test-script"
+        dangerouslySetInnerHTML={{
+          __html: `
+            console.log('test script');
+          `,
+        }}
+      />
     </>
   );
 }

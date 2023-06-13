@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { extendTheme } from '@chakra-ui/react'
-import Script from 'next/script'
 
 const colors = {
   brand: {
@@ -19,13 +18,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
-        {/* <Script id='test-script'>
-        {
-          `
-            console.log('test script')
-          `
-        }
-      </Script> */}
       </ChakraProvider>
     </>
   )
