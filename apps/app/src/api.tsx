@@ -87,7 +87,7 @@ const Api = forwardRef<HTMLDivElement, { onRenderTestApi: () => void }>(function
 	console.log(process.env.NEXT_PUBLIC_NODE_ENV)
 	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
 
-	if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+	if (process.env['NEXT_PUBLIC_NODE_ENV'] === 'development') {
 		setTimeout(() => {
 		setShouldRenderTestApi(true);
 		onRenderTestApi(); // Notify the parent component that TestApi has been rendered
