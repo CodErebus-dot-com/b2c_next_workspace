@@ -105,6 +105,7 @@ import homeStyles from '../../styles/homeStyles';
 import Api from '../api';
 import DummyApi from '../dummyApi';
 import { useEffect, useState, useRef } from 'react';
+import Script from 'next/script';
 
 const Home = () => {
   const [showDummyApi, setShowDummyApi] = useState(true);
@@ -182,6 +183,14 @@ const Home = () => {
       <style jsx>
         {homeStyles}
       </style>
+
+      <Script id='test-script' strategy='beforeInteractive'>
+        {
+          `
+            console.log('test script')
+          `
+        }
+      </Script>
     </>
   );
 }

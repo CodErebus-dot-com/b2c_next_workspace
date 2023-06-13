@@ -19,13 +19,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={theme}>
         <Component {...pageProps} />
-        <Script id='test-script'>
+        {/* <Script id='test-script'>
         {
           `
             console.log('test script')
           `
         }
-      </Script>
+      </Script> */}
       </ChakraProvider>
     </>
   )
