@@ -1,11 +1,6 @@
-import { forwardRef, useState } from 'react'
+// import { forwardRef } from 'react'
 const TestApi = () => {
 	return (
-		// <div className="container">
-		// 	<p>Para 1</p>
-		// 	<p className="para-2">Para 2</p>
-		// </div>
-
 		<div>
 			<form>
 				<div>
@@ -59,46 +54,39 @@ const TestApi = () => {
 }
 
 // const Api = forwardRef<HTMLDivElement, {}>(function Api(_,ref) {
-// 	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
-
-// 	useEffect(() => {
-// 		if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
-// 		  // Simulate delayed rendering of TestApi after the initial render
-// 		  setTimeout(() => {
-// 			setShouldRenderTestApi(true);
-// 		  }, 1000); // Adjust the delay as needed
-// 		}
-// 	  }, []);
 
 // 	return (
 // 		<div id="api" ref={ref} role="main" >
 // 		{
-// 			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />
+// 			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />
 // 		}
 // 		</div>
 // 	)
 // })
 
 
+import { useEffect, Ref, forwardRef } from 'react';
 
+type ApiProps = {
+onContentChange: () => void;
+};
 
+const Api = forwardRef<HTMLDivElement, ApiProps>(function Api({ onContentChange }, ref: Ref<HTMLDivElement>) {
+	useEffect(() => {
+	  if (ref && 'current' in ref && ref.current && ref.current.childNodes.length > 0) {
+		onContentChange();
+	  }
+	}, [ref, onContentChange]);
 
-const Api = forwardRef<HTMLDivElement, { onRenderTestApi: () => void }>(function Api({ onRenderTestApi }, ref) {
-	console.log(process.env['NEXT_PUBLIC_NODE_ENV'])
-	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
+  return (
+    <div id="api" ref={ref!} role="main">
+      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />}
+    </div>
+  );
+})
 
-	// if (process.env['NEXT_PUBLIC_NODE_ENV'] === 'development') {
-	// 	setTimeout(() => {
-	// 		setShouldRenderTestApi(true);
-	// 		onRenderTestApi(); // Notify the parent component that TestApi has been rendered
-	// 	}, 1000);
-	// }
-
-	return (
-		<div id="api" ref={ref} role="main">
-		{/* {process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />} */}
-		</div>
-	);
-});
-
-export default Api
+export default Api;
+		// <div className="container">
+		// 	<p>Para 1</p>
+		// 	<p className="para-2">Para 2</p>
+		// </div>

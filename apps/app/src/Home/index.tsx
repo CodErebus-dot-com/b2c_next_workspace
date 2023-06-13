@@ -22,26 +22,26 @@
 //     applyClassNames(apiWrapper, dummyApiWrapper);
 //   }
   
-//   function applyClassNames(apiNode, dummyApiNode) {
-//     if (
-//       apiNode.nodeType === Node.ELEMENT_NODE &&
-//       dummyApiNode.nodeType === Node.ELEMENT_NODE
-//     ) {
-//       const classNames = dummyApiNode.classList;
-//       for (let i = 0; i < classNames.length; i++) {
-//         apiNode.classList.add(classNames[i]);
-//       }
-//     }
+  // function applyClassNames(apiNode, dummyApiNode) {
+  //   if (
+  //     apiNode.nodeType === Node.ELEMENT_NODE &&
+  //     dummyApiNode.nodeType === Node.ELEMENT_NODE
+  //   ) {
+  //     const classNames = dummyApiNode.classList;
+  //     for (let i = 0; i < classNames.length; i++) {
+  //       apiNode.classList.add(classNames[i]);
+  //     }
+  //   }
   
-//     const apiChildNodes = apiNode.childNodes;
-//     const dummyApiChildNodes = dummyApiNode.childNodes;
+  //   const apiChildNodes = apiNode.childNodes;
+  //   const dummyApiChildNodes = dummyApiNode.childNodes;
   
-//     if (apiChildNodes.length === dummyApiChildNodes.length) {
-//       for (let i = 0; i < apiChildNodes.length; i++) {
-//         applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
-//       }
-//     }
-//   }          
+  //   if (apiChildNodes.length === dummyApiChildNodes.length) {
+  //     for (let i = 0; i < apiChildNodes.length; i++) {
+  //       applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
+  //     }
+  //   }
+  // }          
   
 //   function removeDummyApi(dummyApiWrapper) {      
 //     if (dummyApiWrapper) {
@@ -108,82 +108,77 @@ import { useEffect, useState, useRef } from 'react';
 
 const Home = () => {
   const [showDummyApi, setShowDummyApi] = useState(true);
-  const apiRef = useRef<HTMLDivElement>(null)
-  const dummyApiRef = useRef<HTMLDivElement>(null)
+  const apiRef = useRef<HTMLDivElement>(null);
+  const dummyApiRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<MutationObserver | null>(null);
 
-  // useEffect(() => {
-    const appendClassNamesFromDummyApiToApi = () => {
-      const apiWrapper = apiRef.current;
-      const dummyApiWrapper = dummyApiRef.current;
-      // const apiWrapper = document.getElementById("api");
-      // const dummyApiWrapper = document.getElementById("dummy-api");
-      
-      if (!apiWrapper || !dummyApiWrapper) {
-        console.error("Invalid IDs for API or DummyAPI");
-        return;
-      }
-      
-      applyClassNames(apiWrapper, dummyApiWrapper);
-    }
-    
-    const applyClassNames = (apiNode: any, dummyApiNode: any) => {
-      if (
-        apiNode.nodeType === Node.ELEMENT_NODE &&
-        dummyApiNode.nodeType === Node.ELEMENT_NODE
-      ) {
-        const classNames = dummyApiNode.classList;
-        for (let i = 0; i < classNames.length; i++) {
-          apiNode.classList.add(classNames[i]);
-        }
-      }
-    
-      const apiChildNodes = apiNode.childNodes;
-      const dummyApiChildNodes = dummyApiNode.childNodes;
-    
-      if (apiChildNodes.length === dummyApiChildNodes.length) {
-        for (let i = 0; i < apiChildNodes.length; i++) {
-          applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
-        }
-      }
+  const appendClassNamesFromDummyApiToApi = () => {
+    const apiWrapper = apiRef.current;
+    const dummyApiWrapper = dummyApiRef.current;
 
-      // if (apiChildNodes.length === dummyApiChildNodes.length) {
-      //   for (let i = 0; i < apiChildNodes.length; i++) {
-      //     const apiChildNode = apiChildNodes[i];
-      //     const dummyApiChildNode = dummyApiChildNodes[i];
-      
-      //     if (apiChildNode instanceof HTMLElement && dummyApiChildNode instanceof HTMLElement) {
-      //       applyClassNames(apiChildNode, dummyApiChildNode);
-      //     }
-      //   }
-      // }
+    if (!apiWrapper || !dummyApiWrapper) {
+      console.error("Invalid IDs for API or DummyAPI");
+      return;
     }
 
-    // const observer = new MutationObserver((mutationsList) => {
-    //   // Handle mutations here
-    //   mutationsList.forEach((mutation) => {
-    //     // Check if the mutation is related to the `api` div
-    //     appendClassNamesFromDummyApiToApi();
-    //     setShowDummyApi(false);
-    //     console.log('API div has changed');
-    //   });
-    // });
+    applyClassNames(apiWrapper, dummyApiWrapper);
 
-    // Start observing the `api` div for changes
-  //   if (apiRef.current) {
-  //     observer.observe(apiRef.current, { attributes: true, childList: true, subtree: true });
+    if (!observerRef.current) {
+      observerRef.current = new MutationObserver(handleMutation);
+      observerRef.current.observe(apiWrapper, { childList: true, subtree: true });
+    }
+  };
+
+  // function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
+  //   if (
+  //     apiNode.nodeType === Node.ELEMENT_NODE &&
+  //     dummyApiNode.nodeType === Node.ELEMENT_NODE
+  //   ) {
+  //     const classNames = dummyApiNode.classList;
+  //     for (let i = 0; i < classNames.length; i++) {
+  //       apiNode.classList.add(classNames[i]);
+  //     }
   //   }
+  // }
 
-  //   // Clean up the observer when the component unmounts
-  //   return () => {
-  //     observer.disconnect();
-  //   };
-  // }, [apiRef.current])
+  function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
+    if (
+      apiNode.nodeType === Node.ELEMENT_NODE &&
+      dummyApiNode.nodeType === Node.ELEMENT_NODE
+    ) {
+      const classNames = dummyApiNode.classList;
+      for (let i = 0; i < classNames.length; i++) {
+        apiNode.classList.add(classNames[i]);
+      }
+    }
+  
+    const apiChildNodes = apiNode.childNodes;
+    const dummyApiChildNodes = dummyApiNode.childNodes;
+  
+    if (apiChildNodes.length === dummyApiChildNodes.length) {
+      for (let i = 0; i < apiChildNodes.length; i++) {
+        applyClassNames(apiChildNodes[i] as HTMLElement, dummyApiChildNodes[i] as HTMLElement);
+      }
+    }
+  }
 
-  const handleRenderTestApi = () => {
+  const handleMutation = () => {
     appendClassNamesFromDummyApiToApi();
     setShowDummyApi(false);
-    console.log('API div has changed');
+    console.log('Content changed in the Api component');
   };
+
+  useEffect(() => {
+    appendClassNamesFromDummyApiToApi();
+    console.log(observerRef)
+    return () => {
+      if (observerRef.current) {
+        console.log(observerRef)
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -201,8 +196,7 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api ref={apiRef} onRenderTestApi={handleRenderTestApi} />
-                      {/* { showDummyApi && <DummyApi ref={dummyApiRef} /> } */}
+                      <Api ref={apiRef} onContentChange={handleMutation} />
                       <DummyApi ref={dummyApiRef} />
                     </div>
                   </div>
@@ -221,4 +215,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Home
