@@ -21,7 +21,9 @@ const CustomScript = () => {
         id="test-script-3"
         dangerouslySetInnerHTML={{
           __html: `
-            console.log('test script 3');
+            document.addEventListener("DOMContentLoaded", function() {
+              console.log('test script 3 loaded');
+            });
           `,
         }}
       />

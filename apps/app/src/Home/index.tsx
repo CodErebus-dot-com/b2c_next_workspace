@@ -196,7 +196,9 @@ const Home = () => {
         id="test-script"
         dangerouslySetInnerHTML={{
           __html: `
-            console.log('test script');
+            document.addEventListener("DOMContentLoaded", function() {
+              console.log('test script loaded');
+            });
           `,
         }}
       />
