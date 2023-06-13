@@ -84,6 +84,7 @@ const TestApi = () => {
 
 
 const Api = forwardRef<HTMLDivElement, { onRenderTestApi: () => void }>(function Api({ onRenderTestApi }, ref) {
+	console.log(process.env.NEXT_PUBLIC_NODE_ENV)
 	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
 
 	if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
