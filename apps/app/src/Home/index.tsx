@@ -163,7 +163,6 @@ const Home = () => {
           <table role="presentation">
             <tbody>
               <tr>
-                <td/>
                 <td>
                   <div>
                     <div>
@@ -191,13 +190,15 @@ const Home = () => {
           `
         }
       </Script> */}
-
       <script
         id="test-script"
         dangerouslySetInnerHTML={{
           __html: `
+            "use strict"; 
             document.addEventListener("DOMContentLoaded", function() {
-              console.log('test script loaded');
+              console.log('script with jquery')
+              const heading = document.querySelector("h2");
+              console.log(heading);
             });
           `,
         }}
