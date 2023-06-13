@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 const TestApi = () => {
 	return (
 		// <div className="container">
@@ -57,14 +57,47 @@ const TestApi = () => {
 		</div>
 	)
 }
-const Api = forwardRef<HTMLDivElement, {}>(function Api(_,ref) {
+
+// const Api = forwardRef<HTMLDivElement, {}>(function Api(_,ref) {
+// 	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
+
+// 	useEffect(() => {
+// 		if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+// 		  // Simulate delayed rendering of TestApi after the initial render
+// 		  setTimeout(() => {
+// 			setShouldRenderTestApi(true);
+// 		  }, 1000); // Adjust the delay as needed
+// 		}
+// 	  }, []);
+
+// 	return (
+// 		<div id="api" ref={ref} role="main" >
+// 		{
+// 			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />
+// 		}
+// 		</div>
+// 	)
+// })
+
+
+
+
+
+const Api = forwardRef<HTMLDivElement, { onRenderTestApi: () => void }>(function Api({ onRenderTestApi }, ref) {
+	const [shouldRenderTestApi, setShouldRenderTestApi] = useState(false);
+
+	if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
+		setTimeout(() => {
+		setShouldRenderTestApi(true);
+		onRenderTestApi(); // Notify the parent component that TestApi has been rendered
+		}, 1000);
+	}
+
 	return (
-		<div id="api" ref={ref} role="main" >
-		{
-			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />
-		}
+		<div id="api" ref={ref} role="main">
+		{process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && shouldRenderTestApi && <TestApi />}
 		</div>
-	)
-})
+	);
+});
 
 export default Api

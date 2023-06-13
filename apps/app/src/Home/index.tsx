@@ -111,7 +111,7 @@ const Home = () => {
   const apiRef = useRef<HTMLDivElement>(null)
   const dummyApiRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  // useEffect(() => {
     const appendClassNamesFromDummyApiToApi = () => {
       const apiWrapper = apiRef.current;
       const dummyApiWrapper = dummyApiRef.current;
@@ -145,11 +145,45 @@ const Home = () => {
           applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
         }
       }
+
+      // if (apiChildNodes.length === dummyApiChildNodes.length) {
+      //   for (let i = 0; i < apiChildNodes.length; i++) {
+      //     const apiChildNode = apiChildNodes[i];
+      //     const dummyApiChildNode = dummyApiChildNodes[i];
+      
+      //     if (apiChildNode instanceof HTMLElement && dummyApiChildNode instanceof HTMLElement) {
+      //       applyClassNames(apiChildNode, dummyApiChildNode);
+      //     }
+      //   }
+      // }
     }
-  
+
+    // const observer = new MutationObserver((mutationsList) => {
+    //   // Handle mutations here
+    //   mutationsList.forEach((mutation) => {
+    //     // Check if the mutation is related to the `api` div
+    //     appendClassNamesFromDummyApiToApi();
+    //     setShowDummyApi(false);
+    //     console.log('API div has changed');
+    //   });
+    // });
+
+    // Start observing the `api` div for changes
+  //   if (apiRef.current) {
+  //     observer.observe(apiRef.current, { attributes: true, childList: true, subtree: true });
+  //   }
+
+  //   // Clean up the observer when the component unmounts
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [apiRef.current])
+
+  const handleRenderTestApi = () => {
     appendClassNamesFromDummyApiToApi();
     setShowDummyApi(false);
-  }, [])
+    console.log('API div has changed');
+  };
 
   return (
     <>
@@ -167,9 +201,9 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api ref={apiRef} />
-                      { showDummyApi && <DummyApi ref={dummyApiRef} /> }
-                      {/* <DummyApi /> */}
+                      <Api ref={apiRef} onRenderTestApi={handleRenderTestApi} />
+                      {/* { showDummyApi && <DummyApi ref={dummyApiRef} /> } */}
+                      <DummyApi ref={dummyApiRef} />
                     </div>
                   </div>
                 </td>
