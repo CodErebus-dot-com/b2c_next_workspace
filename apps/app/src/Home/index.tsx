@@ -146,10 +146,10 @@ const Home = () => {
     }
   } 
 
-  // useEffect(() => {
+  useEffect(() => {
     appendClassNamesFromDummyApiToApi();
-    // console.log('useEffect is working in production');
-  // }, [appendClassNamesFromDummyApiToApi]);
+    console.log('useEffect is working in production');
+  }, []);
 
   return (
     <>
