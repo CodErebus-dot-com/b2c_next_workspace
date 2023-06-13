@@ -110,8 +110,7 @@ const Home = () => {
   const [showDummyApi, setShowDummyApi] = useState(true);
   const apiRef = useRef<HTMLDivElement>(null);
   const dummyApiRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<MutationObserver | null>(null);
-
+ 
   const appendClassNamesFromDummyApiToApi = () => {
     const apiWrapper = apiRef.current;
     const dummyApiWrapper = dummyApiRef.current;
@@ -122,24 +121,9 @@ const Home = () => {
     }
 
     applyClassNames(apiWrapper, dummyApiWrapper);
-
-    if (!observerRef.current) {
-      observerRef.current = new MutationObserver(handleMutation);
-      observerRef.current.observe(apiWrapper, { childList: true, subtree: true });
-    }
+    setShowDummyApi(false);
+    console.log('Content changed in the Api component');
   };
-
-  // function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
-  //   if (
-  //     apiNode.nodeType === Node.ELEMENT_NODE &&
-  //     dummyApiNode.nodeType === Node.ELEMENT_NODE
-  //   ) {
-  //     const classNames = dummyApiNode.classList;
-  //     for (let i = 0; i < classNames.length; i++) {
-  //       apiNode.classList.add(classNames[i]);
-  //     }
-  //   }
-  // }
 
   function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
     if (
@@ -160,24 +144,11 @@ const Home = () => {
         applyClassNames(apiChildNodes[i] as HTMLElement, dummyApiChildNodes[i] as HTMLElement);
       }
     }
-  }
-
-  const handleMutation = () => {
-    appendClassNamesFromDummyApiToApi();
-    setShowDummyApi(false);
-    console.log('Content changed in the Api component');
-  };
+  } 
 
   useEffect(() => {
     appendClassNamesFromDummyApiToApi();
-    console.log(observerRef)
-    return () => {
-      if (observerRef.current) {
-        console.log(observerRef)
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
-    };
+    console.log('useEffect is working in production');
   }, []);
 
   return (
@@ -196,7 +167,7 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api ref={apiRef} onContentChange={handleMutation} />
+                      <Api ref={apiRef} />
                       <DummyApi ref={dummyApiRef} />
                     </div>
                   </div>

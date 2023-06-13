@@ -65,25 +65,15 @@ const TestApi = () => {
 // })
 
 
-import { useEffect, Ref, forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-type ApiProps = {
-onContentChange: () => void;
-};
-
-const Api = forwardRef<HTMLDivElement, ApiProps>(function Api({ onContentChange }, ref: Ref<HTMLDivElement>) {
-	useEffect(() => {
-	  if (ref && 'current' in ref && ref.current && ref.current.childNodes.length > 0) {
-		onContentChange();
-	  }
-	}, [ref, onContentChange]);
-
-  return (
-    <div id="api" ref={ref!} role="main">
-      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />}
-    </div>
-  );
-})
+const Api = forwardRef<HTMLDivElement>((_, ref) => {
+	return (
+	  <div id="api" ref={ref} role="main">
+		{process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />}
+	  </div>
+	);
+  });
 
 export default Api;
 		// <div className="container">
