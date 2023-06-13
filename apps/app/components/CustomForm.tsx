@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, FormControl, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/react";
+import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/react";
 
 const CustomForm = () => {
   return (

@@ -21,7 +21,7 @@ const TestApi = () => {
 					<div>
 					<p></p>
 					</div>
-					<input type="email" id="email" />
+					<input type="email" />
 				</div>
 				<div>
 					<div>
@@ -31,7 +31,7 @@ const TestApi = () => {
 					<div>
 					<p></p>
 					</div>
-					<input type="password"  id="password"/>
+					<input type="password" />
 				</div>
 				<div></div>
 
