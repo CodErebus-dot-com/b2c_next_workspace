@@ -1,5 +1,6 @@
 // pages/_document.js
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 const MyDocument = () => {
     return (
@@ -22,7 +23,13 @@ const CustomScript = () => {
         dangerouslySetInnerHTML={{
           __html: `
             document.addEventListener("DOMContentLoaded", function() {
-              console.log('test script 3 loaded');
+              window.myApp = {
+                log: function(message) {
+                  // Perform any actions you want with the log message
+                  console.log(message);
+                }
+              };
+              console.log('test script loaded by varki');
             });
           `,
         }}
