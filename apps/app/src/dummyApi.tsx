@@ -1,9 +1,8 @@
-import { forwardRef } from 'react'
 import CustomForm from "../components/CustomForm"
 
-const DummyApi = forwardRef<HTMLDivElement, {}>(function DummyApi(_,ref) {
+const DummyApi = function DummyApi() {
   return (
-    <div id="dummy-api" ref={ref}>
+    <div id="dummy-api">
         <CustomForm />
         {/* <div className="test">
           <p className="test-1">Tetst 1</p>
@@ -11,6 +10,6 @@ const DummyApi = forwardRef<HTMLDivElement, {}>(function DummyApi(_,ref) {
         </div> */}
     </div>
   )
-})
+}
 
 export default DummyApi

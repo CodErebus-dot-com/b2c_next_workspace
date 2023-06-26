@@ -108,48 +108,41 @@ import { useEffect, useState, useRef } from 'react';
 
 const Home = () => {
   const [showDummyApi, setShowDummyApi] = useState(true);
-  const apiRef = useRef<HTMLDivElement>(null);
-  const dummyApiRef = useRef<HTMLDivElement>(null);
- 
-  const appendClassNamesFromDummyApiToApi = () => {
-    const apiWrapper = apiRef.current;
-    const dummyApiWrapper = dummyApiRef.current;
-
-    if (!apiWrapper || !dummyApiWrapper) {
-      console.error("Invalid IDs for API or DummyAPI");
-      return;
-    }
-
-    applyClassNames(apiWrapper, dummyApiWrapper);
-    setShowDummyApi(false);
-    console.log('Content changed in the Api component');
-  };
-
-  function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
-    if (
-      apiNode.nodeType === Node.ELEMENT_NODE &&
-      dummyApiNode.nodeType === Node.ELEMENT_NODE
-    ) {
-      const classNames = dummyApiNode.classList;
-      for (let i = 0; i < classNames.length; i++) {
-        apiNode.classList.add(classNames[i]);
-      }
-    }
   
-    const apiChildNodes = apiNode.childNodes;
-    const dummyApiChildNodes = dummyApiNode.childNodes;
-  
-    if (apiChildNodes.length === dummyApiChildNodes.length) {
-      for (let i = 0; i < apiChildNodes.length; i++) {
-        applyClassNames(apiChildNodes[i] as HTMLElement, dummyApiChildNodes[i] as HTMLElement);
-      }
-    }
-  } 
+  // const appendClassNamesFromDummyApiToApi = () => {
+  //   const apiWrapper = document.getElementById("api");
+  //   const dummyApiWrapper = document.getElementById("dummy-api");
 
-  useEffect(() => {
-    appendClassNamesFromDummyApiToApi();
-    console.log('useEffect is working in production');
-  }, []);
+  //   if (!apiWrapper || !dummyApiWrapper) {
+  //     console.error("Invalid IDs for API or DummyAPI");
+  //     return;
+  //   }
+
+  //   applyClassNames(apiWrapper, dummyApiWrapper);
+  //   setShowDummyApi(false);
+  //   console.log('Content changed in the Api component');
+  // };
+
+  // function applyClassNames(apiNode: HTMLElement, dummyApiNode: HTMLElement) {
+  //   if (
+  //     apiNode.nodeType === Node.ELEMENT_NODE &&
+  //     dummyApiNode.nodeType === Node.ELEMENT_NODE
+  //   ) {
+  //     const classNames = dummyApiNode.classList;
+  //     for (let i = 0; i < classNames.length; i++) {
+  //       apiNode.classList.add(classNames[i]);
+  //     }
+  //   }
+  
+  //   const apiChildNodes = apiNode.childNodes;
+  //   const dummyApiChildNodes = dummyApiNode.childNodes;
+  
+  //   if (apiChildNodes.length === dummyApiChildNodes.length) {
+  //     for (let i = 0; i < apiChildNodes.length; i++) {
+  //       applyClassNames(apiChildNodes[i] as HTMLElement, dummyApiChildNodes[i] as HTMLElement);
+  //     }
+  //   }
+  // } 
 
   return (
     <>
@@ -166,8 +159,8 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api ref={apiRef} />
-                      <DummyApi ref={dummyApiRef} />
+                      <Api />
+                      <DummyApi />
                     </div>
                   </div>
                 </td>
@@ -187,7 +180,48 @@ const Home = () => {
         dangerouslySetInnerHTML={{
           __html: `
             "use strict";
-            
+            document.addEventListener("DOMContentLoaded", function () {
+              // appendClassNamesFromApiToDummyApi function def
+              function appendClassNamesFromApiToDummyApi() {
+                const apiWrapper = document.getElementById("api");
+                const dummyApiWrapper = document.getElementById("dummy-api");
+
+                if (!apiWrapper || !dummyApiWrapper) {
+                  console.error("Invalid IDs for API or DummyAPI");
+                  return;
+                }
+
+                applyClassNames(apiWrapper, dummyApiWrapper);
+                console.log('Content changed in the Api component');
+                // console.log(apiWrapper)
+              }
+
+              // applyClassNames function def
+              function applyClassNames(apiNode, dummyApiNode) {
+                if (
+                  apiNode.nodeType === Node.ELEMENT_NODE &&
+                  dummyApiNode.nodeType === Node.ELEMENT_NODE
+                ) {
+                  const classNames = dummyApiNode.classList;
+                  for (let i = 0; i < classNames.length; i++) {
+                    apiNode.classList.add(classNames[i]);
+                  }
+                }
+
+                const apiChildNodes = apiNode.childNodes;
+                const dummyApiChildNodes = dummyApiNode.childNodes;
+
+                if (apiChildNodes.length === dummyApiChildNodes.length) {
+                  for (let i = 0; i < apiChildNodes.length; i++) {
+                    applyClassNames(apiChildNodes[i], dummyApiChildNodes[i]);
+                  }
+                }
+              }
+
+              // appendClassNamesFromApiToDummyApi function call
+              appendClassNamesFromApiToDummyApi();
+              console.log('classNames appended');
+            })
           `,
         }}
       /> */}

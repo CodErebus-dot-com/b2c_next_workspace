@@ -65,17 +65,17 @@ const TestApi = () => {
 // })
 
 
-import { forwardRef } from 'react';
+// import { forwardRef } from 'react';
 
-const Api = forwardRef<HTMLDivElement>(function (_, ref) {
+const Api = () => {
 	return (
-	  <div id="api" ref={ref} role="main">
+	  <div id="api" role="main">
 		{process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />}
 	  </div>
 	)
-})
+}
 
-Api.displayName = 'Api';
+// Api.displayName = 'Api';
 export default Api
 		// <div className="container">
 		// 	<p>Para 1</p>
