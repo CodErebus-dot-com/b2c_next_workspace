@@ -1,4 +1,3 @@
-// import { forwardRef } from 'react'
 const TestApi = () => {
 	return (
 		<div>
@@ -53,20 +52,6 @@ const TestApi = () => {
 	)
 }
 
-// const Api = forwardRef<HTMLDivElement, {}>(function Api(_,ref) {
-
-// 	return (
-// 		<div id="api" ref={ref} role="main" >
-// 		{
-// 			process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' && <TestApi />
-// 		}
-// 		</div>
-// 	)
-// })
-
-
-// import { forwardRef } from 'react';
-
 const Api = () => {
 	return (
 	  <div id="api" role="main">
@@ -75,9 +60,4 @@ const Api = () => {
 	)
 }
 
-// Api.displayName = 'Api';
 export default Api
-		// <div className="container">
-		// 	<p>Para 1</p>
-		// 	<p className="para-2">Para 2</p>
-		// </div>

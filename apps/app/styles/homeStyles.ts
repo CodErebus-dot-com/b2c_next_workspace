@@ -38,17 +38,13 @@ export default css.global`
     padding: 20px;
   }
   
-  
-  // DummyApi component
-  // ${process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && `
-    #dummy-api {
-      visibility: none;
-      height: 0;
-      widht: 0;
-      z-index: -9999;
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-  // `} 
+  #dummy-api {
+    visibility: none;
+    height: 0;
+    widht: 0;
+    z-index: -9999;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 `
