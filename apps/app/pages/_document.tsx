@@ -56,10 +56,10 @@ const CustomScript = () => {
               }
             }
 
-            document.addEventListener("DOMContentLoaded", function () {
+            window.onload = function() {
               appendClassNamesFromApiToDummyApi();
               console.log('classNames appended');
-            })
+            };
           `,
         }}
       />
