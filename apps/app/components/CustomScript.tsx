@@ -15,7 +15,7 @@ const CustomScript = () => {
             }
 
             applyClassNames(apiWrapper, dummyApiWrapper);
-            console.log('Content changed in the Api component');
+            console.log('classNames appended');
           }
 
           function applyClassNames(apiNode, dummyApiNode) {
@@ -41,9 +41,24 @@ const CustomScript = () => {
             }
           }
 
+          function moveStylesToHead() {
+            const styles = Array.from(document.getElementsByTagName('style'));
+            const head = document.querySelector('head');
+          
+            if (!head) {
+              console.error('No head element found');
+            } else {
+              styles.forEach(style => {
+                head.appendChild(style);
+              });
+            }
+          
+            console.log('Styles moved to head');
+          }          
+
           window.onload = function() {
+            moveStylesToHead();
             appendClassNamesFromApiToDummyApi();
-            console.log('classNames appended');
           };
         `,
       }}
