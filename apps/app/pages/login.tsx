@@ -6,7 +6,7 @@ const Login = () => {
         <script data-test-id="test-script" dangerouslySetInnerHTML={{__html: `
             function addClasses() {
                 const h2Elem = document.querySelector('.intro')
-                h2Elem.classList.add('chakra-heading css-1dklj6k')
+                h2Elem.classList.add('test-class');
             }
 
             addClasses();
