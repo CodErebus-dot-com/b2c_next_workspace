@@ -3,55 +3,53 @@ import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/r
 
 const CustomForm = () => {
   return (
-    <Box>
-      <form>
+    <form>
+      <Box>
+        <Heading>
+          Sign in with your email address
+        </Heading>
+      </Box>
+      <Box>
+        <Text></Text>
+      </Box>
+      <Box>
         <Box>
-          <Heading>
-            Sign in with your email address
-          </Heading>
-        </Box>
-        <Box>
-          <Text></Text>
+          <FormLabel>Email Address</FormLabel>
+          <Box>
+            <Text></Text>
+          </Box>
+          <Input type="email" />
         </Box>
         <Box>
           <Box>
-            <FormLabel>Email Address</FormLabel>
-            <Box>
-              <Text></Text>
-            </Box>
-            <Input type="email" />
+            <FormLabel>Password</FormLabel>
+            <Link>Forgot your password?</Link>
           </Box>
           <Box>
-            <Box>
-              <FormLabel>Password</FormLabel>
-              <Link>Forgot your password?</Link>
-            </Box>
-            <Box>
-              <Text></Text>
-            </Box>
-            <Input type="password" />
+            <Text></Text>
           </Box>
-          <Box></Box>
+          <Input type="password" />
+        </Box>
+        <Box></Box>
 
-          <Box>
-            <Button>
-              Sign in
-            </Button>
-          </Box>
-        </Box>
         <Box>
-          <Heading>OR</Heading>
+          <Button>
+            Sign in
+          </Button>
         </Box>
-        <Box>
-          <Text>
-            Don't have an account?
-            <Link>
-              Sign up now
-            </Link>
-          </Text>
-        </Box>
-      </form>
-    </Box>
+      </Box>
+      <Box>
+        <Heading>OR</Heading>
+      </Box>
+      <Box>
+        <Text>
+          Don't have an account?
+          <Link>
+            Sign up now
+          </Link>
+        </Text>
+      </Box>
+    </form>
   );
 };
 
