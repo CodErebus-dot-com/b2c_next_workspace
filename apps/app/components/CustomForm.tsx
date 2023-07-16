@@ -9,6 +9,46 @@ const CustomForm = () => {
           Sign in with your email address
         </Heading>
       </Box>
+      <Box> {/* .error pageLevel */}
+        <Text></Text>
+      </Box>
+      <Box> {/* .entry */}
+        <Box> {/* .entry-item */}
+          <FormLabel>Email Address</FormLabel>
+          <Box> {/* .error itemLevel */}
+            <Text></Text>
+          </Box>
+          <Input type="email" />
+        </Box>
+        <Box> {/* .entry-item */}
+          <Box> 
+            <FormLabel>Password</FormLabel>
+            <Link>Forgot your password?</Link>
+          </Box>
+          <Box> {/* .error itemLevel */}
+            <Text></Text>
+          </Box>
+          <Input type="password" />
+        </Box>
+        <Box></Box>
+
+        <Box>
+          <Button>
+            Sign in
+          </Button>
+        </Box>
+      </Box>
+      <Box>
+        <Heading>OR</Heading>
+      </Box>
+      <Box>
+        <Text>
+          Don't have an account?
+          <Link>
+            Sign up now
+          </Link>
+        </Text>
+      </Box>
     </form>
   );
 };
