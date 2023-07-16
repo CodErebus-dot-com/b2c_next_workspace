@@ -2,7 +2,7 @@ const TestApi = () => {
 	return (
 		<form>
 			<div>
-			<h2>
+			<h2 className="intro">
 				Sign in with your email address
 			</h2>
 			</div>
