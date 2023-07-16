@@ -132,7 +132,7 @@ const CustomScript = () => {
             console.log('classNames applied');
           }
 
-          window.onload = syncAPItoDummyAPI;
+          syncAPItoDummyAPI();
           applyClassNamesToElements();
         `
         }} 
