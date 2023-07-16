@@ -73,6 +73,12 @@ const CustomScript = () => {
               console.error("Invalid IDs for API or DummyAPI");
               return;
             }
+
+            
+            if (!apiElem.hasChildNodes()) {
+              console.log("API does not have any child nodes, skipping sync process.");
+              return;
+            }
           
             syncNode(apiElem, dummyApiElem);
           
