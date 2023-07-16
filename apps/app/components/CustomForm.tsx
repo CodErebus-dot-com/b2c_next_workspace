@@ -4,28 +4,28 @@ import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/r
 const CustomForm = () => {
   return (
     <form>
-      <Box>
+      <Box> {/* .intro */}
         <Heading>
           Sign in with your email address
         </Heading>
       </Box>
-      <Box>
+      <Box> {/* .error pageLevel */}
         <Text></Text>
       </Box>
-      <Box>
-        <Box>
+      <Box> {/* .entry */}
+        <Box> {/* .entry-item */}
           <FormLabel>Email Address</FormLabel>
-          <Box>
+          <Box> {/* .error itemLevel */}
             <Text></Text>
           </Box>
           <Input type="email" />
         </Box>
-        <Box>
-          <Box>
+        <Box> {/* .entry-item */}
+          <Box> 
             <FormLabel>Password</FormLabel>
             <Link>Forgot your password?</Link>
           </Box>
-          <Box>
+          <Box> {/* .error itemLevel */}
             <Text></Text>
           </Box>
           <Input type="password" />

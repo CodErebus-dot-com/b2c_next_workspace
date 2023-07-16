@@ -64,7 +64,7 @@ const CustomScript = () => {
     //   }}
     // />
 
-    <script data-test-id="test-script" dangerouslySetInnerHTML={{__html: `
+    <script data-test-id="test-script" id="custom-script" dangerouslySetInnerHTML={{__html: `
           function syncAPItoDummyAPI() {
             const apiElem = document.querySelector('#api');
             const dummyApiElem = document.querySelector('#dummy-api');
@@ -128,7 +128,6 @@ const CustomScript = () => {
 
           window.onload = syncAPItoDummyAPI;
           applyClassNamesToElements();
-    
         `
         }} 
     />
