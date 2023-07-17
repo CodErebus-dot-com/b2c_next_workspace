@@ -13,6 +13,9 @@ const CustomForm = () => {
         <Text></Text>
       </Box>
       <Box> {/* .entry */}
+        <Heading as='h4' size='md'>
+          Test Subtitle
+        </Heading>
         <Box> {/* .entry-item */}
           <FormLabel>Email Address</FormLabel>
           <Box> {/* .error itemLevel */}
