@@ -77,7 +77,8 @@ const CustomScript = () => {
           console.log('classNames applied');
         }
 
-        window.onload = applyClassNamesToElements;
+        var isDev = window.location.hostname === "localhost"; // adjust according to your setup
+        isDev ? window.onload = applyClassNamesToElements : applyClassNamesToElements();
       `,
       }}
     />
