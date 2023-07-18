@@ -6,16 +6,16 @@ const TestApi = () => {
 				Sign in with your email address
 			</h2>
 			</div>
-			<div>
+			<div className='error'>
 			<p></p>
 			</div>
 			<div>
 			<div>
 				<label>Email Address</label>
-				<div>
-				<p></p>
+				<div className='error'>
+				<p>Error messages will be handled by AD B2C.</p>
 				</div>
-				<input type="email" />
+				<input className='highlightError' type='email' />
 			</div>
 			<div>
 				<div>

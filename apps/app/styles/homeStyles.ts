@@ -37,7 +37,11 @@ export default css.global`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
-  
+
+  .verificationErrorText {
+    color: #d63301;
+  } // move this to the CustomForm component if you want to use chakra classes instead
+
   #dummy-api {
     visibility: none;
     height: 0;

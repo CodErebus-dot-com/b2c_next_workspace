@@ -1,7 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/react";
+import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/react"
 
 const CustomForm = () => {
+  const highlightError = { 
+    '&.highlightError': { 
+      borderColor: 'red.500',
+      boxShadow: '0 0 0 1px red.500', 
+    }
+  }
+
   return (
     <form>
       <Box my={4}> {/* .intro */}
@@ -9,26 +16,26 @@ const CustomForm = () => {
           Sign in with your email address
         </Heading>
       </Box>
-      <Box mb={1}> {/* .error pageLevel */}
-        <Text color="red.700"></Text>
+      <Box mb={1} color="red.500"> {/* .error pageLevel */}
+        <Text></Text>
       </Box>
       <Box> {/* .entry */}
         <Box mt={3}> {/* .entry-item */}
           <FormLabel>Email Address</FormLabel>
-          <Box mb={1}> {/* .error pageLevel */}
-            <Text color="red.700"></Text>
+          <Box mb={1} color="red.500"> {/* .error pageLevel */}
+            <Text></Text>
           </Box>
-          <Input type="email" />
+          <Input type="email" mt={2} sx={highlightError} />
         </Box>
         <Box mt={3}> {/* .entry-item */}
           <Box> 
             <FormLabel>Password</FormLabel>
             <Link color="blue.500">Forgot your password?</Link>
           </Box>
-          <Box mb={1}> {/* .error pageLevel */}
-            <Text color="red.700"></Text>
+          <Box mb={1} color="red.500"> {/* .error pageLevel */}
+            <Text></Text>
           </Box>
-          <Input type="password" mt={2} />
+          <Input type="password" mt={2} sx={highlightError} />
         </Box>
         <Box></Box>
 
