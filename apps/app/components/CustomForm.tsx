@@ -4,50 +4,47 @@ import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/r
 const CustomForm = () => {
   return (
     <form>
-      <Box> {/* .intro */}
-        <Heading>
+      <Box my={4}> {/* .intro */}
+        <Heading fontSize="2xl" color="teal.500">
           Sign in with your email address
         </Heading>
       </Box>
-      <Box> {/* .error pageLevel */}
-        <Text></Text>
+      <Box className="mb-1"> {/* .error pageLevel */}
+        <Text className="text-red-700"></Text>
       </Box>
       <Box> {/* .entry */}
-        <Heading as='h4' size='md'>
-          Test Subtitle
-        </Heading>
-        <Box> {/* .entry-item */}
+        <Box mt={3}> {/* .entry-item */}
           <FormLabel>Email Address</FormLabel>
-          <Box> {/* .error itemLevel */}
-            <Text></Text>
+          <Box className="mb-1"> {/* .error pageLevel */}
+            <Text className="text-red-700"></Text>
           </Box>
           <Input type="email" />
         </Box>
-        <Box> {/* .entry-item */}
+        <Box mt={3}> {/* .entry-item */}
           <Box> 
             <FormLabel>Password</FormLabel>
-            <Link>Forgot your password?</Link>
+            <Link color="blue.500">Forgot your password?</Link>
           </Box>
-          <Box> {/* .error itemLevel */}
-            <Text></Text>
+          <Box className="mb-1"> {/* .error pageLevel */}
+            <Text className="text-red-700"></Text>
           </Box>
-          <Input type="password" />
+          <Input type="password" mt={2} />
         </Box>
         <Box></Box>
 
-        <Box>
-          <Button>
+        <Box mt={4}>
+          <Button colorScheme="teal">
             Sign in
           </Button>
         </Box>
       </Box>
-      <Box>
-        <Heading>OR</Heading>
+      <Box my={4}>
+        <Heading color="gray.600">OR</Heading>
       </Box>
       <Box>
-        <Text>
+        <Text color="gray.600">
           Don't have an account?
-          <Link>
+          <Link color="blue.500" ml={3}>
             Sign up now
           </Link>
         </Text>
