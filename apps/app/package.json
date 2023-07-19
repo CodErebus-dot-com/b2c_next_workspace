@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "clean": "rimraf .turbo",
+    "process-twd": "rimraf tw-styles.js && node process-twd.js",
+    "build": "pnpm run process-twd && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -26,6 +28,7 @@
     "eslint": "^8.11.0",
     "eslint-config-next": "canary",
     "postcss": "^8.4.18",
+    "rimraf": "^4.4.0",
     "tailwindcss": "^3.2.1",
     "typescript": "4.8.4"
   }

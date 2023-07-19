@@ -1,16 +1,16 @@
 // pages/_document.js
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript } from 'next/document'
 
 const MyDocument = () => {
-    return (
-      <Html>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
+  return (
+    <Html>
+      <Head/>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }
 
 export default MyDocument;
