@@ -22,7 +22,7 @@ const Home = () => {
                   <div>
                     <div>
                       <Image data-tenant-branding-logo="true" className="companyLogo" alt="GenesisX logo" />
-                      <Api />
+                      {/* <Api /> */}
                       <DummyApi />
                     </div>
                   </div>
@@ -38,7 +38,7 @@ const Home = () => {
         {homeStyles}
       </style>
 
-      <CustomScript />
+      {/* <CustomScript /> */}
     </>
   );
 }
