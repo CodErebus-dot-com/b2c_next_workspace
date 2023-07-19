@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Button, FormLabel, Heading, Input, Link, Text } from "@chakra-ui/react"
+import { Box, FormLabel, Input, Link, Text } from "@chakra-ui/react"
+import { Button, Title } from "@acme/ui";
 
 const CustomForm = () => {
   const highlightError = { 
@@ -12,9 +13,9 @@ const CustomForm = () => {
   return (
     <form>
       <Box my={4}> {/* .intro */}
-        <Heading fontSize="2xl" color="teal.500">
+        <Title color="teal.500"> {/* AD B2C expects a h2 element here and Title component by default is set to h2 */}
           Sign in with your email address
-        </Heading>
+        </Title>
       </Box>
       <Box mb={1} color="red.500"> {/* .error pageLevel */}
         <Text></Text>
@@ -40,13 +41,13 @@ const CustomForm = () => {
         <Box></Box>
 
         <Box mt={4}>
-          <Button colorScheme="teal">
-            Sign in
+          <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Sign In
           </Button>
         </Box>
       </Box>
       <Box my={4}>
-        <Heading color="gray.600">OR</Heading>
+        <Title color="gray.600" level={2} fontSize="3xl">OR</Title>
       </Box>
       <Box>
         <Text color="gray.600">
