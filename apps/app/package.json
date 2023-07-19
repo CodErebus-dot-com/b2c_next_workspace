@@ -13,6 +13,7 @@
   "dependencies": {
     "@acme/ui": "workspace:*",
     "@acme/utils": "workspace:*",
+    "critters": "^0.0.19",
     "next": "canary",
     "react": "latest",
     "react-dom": "latest",
