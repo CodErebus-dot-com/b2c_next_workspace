@@ -3,7 +3,16 @@ import tailwindStyles from '../tw-styles'
 const CustomScript = () => {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: tailwindStyles }} />
+      {/* the generated tailwindStyles should be used only for production */}
+      { 
+        process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && 
+        <style
+          data-test-id="test-style"
+          dangerouslySetInnerHTML={{
+            __html: tailwindStyles,
+          }}
+        />
+      }
       <script
         data-test-id="test-script"
         id="custom-script"
