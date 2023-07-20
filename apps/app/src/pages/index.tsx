@@ -1,7 +1,6 @@
-import Home from '../src/Home'
+import Home from '@components/Home'
 
 export default function Index() {
-
   return (
     <>
       <Home />

@@ -8,7 +8,7 @@
     "dev": "pnpm build --watch",
     "build": "rimraf dist && tsc",
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
-    "clean": "rimraf dist && rimraf .turbo"
+    "clean": "rimraf dist .turbo"
   },
   "sideEffects": false,
   "type": "module",

@@ -1,21 +1,23 @@
-import tailwindStyles from '../tw-styles'
+import tailwindStyles from '@root/tw-styles'
 
+// CustomScript is a component that adds a script and a style tag to the DOM.
+// The script will apply the classNames from the dummy-api component to the api component.
+// The style tag will inject the processed tw-styles into the DOM.
 const CustomScript = () => {
   return (
     <>
       {/* the generated tailwindStyles should be used only for production */}
-      { 
-        process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && 
+      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && (
         <style
-          data-test-id="test-style"
+          data-test-id='test-style'
           dangerouslySetInnerHTML={{
             __html: tailwindStyles,
           }}
         />
-      }
+      )}
       <script
-        data-test-id="test-script"
-        id="custom-script"
+        data-test-id='test-script'
+        id='custom-script'
         dangerouslySetInnerHTML={{
           __html: `
           function logError(apiElems, dummyApiElems) {
@@ -96,7 +98,7 @@ const CustomScript = () => {
         }}
       />
     </>
-  );
+  )
 }
 
 export default CustomScript

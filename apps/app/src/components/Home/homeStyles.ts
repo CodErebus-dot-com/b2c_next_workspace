@@ -1,10 +1,10 @@
-import css from 'styled-jsx/css';
+import css from 'styled-jsx/css'
 
 export default css.global`
   #signin_container {
     display: flex;
   }
-  
+
   #background_branding_container {
     height: 100vh;
     width: 100vw;
@@ -12,12 +12,12 @@ export default css.global`
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
   }
-  
+
   .illustration {
     height: 100%;
     width: 100%;
   }
-  
+
   #panel {
     height: 100%;
     width: 60%;
@@ -26,11 +26,11 @@ export default css.global`
     justify-content: center;
     border-left: 1px solid #fff;
   }
-  
+
   .inner_container {
     margin-top: 5em;
   }
-  
+
   .panel {
     background-color: #fff;
     border-top: 1px solid #ccc;

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true
+    optimizeCss: true,
   },
   transpilePackages: ['@acme/ui', '@acme/utils'],
 }
