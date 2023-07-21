@@ -40,15 +40,15 @@ export default css.global`
 
   .verificationErrorText {
     color: #d63301;
-  } // move this to the CustomForm component if you want to use chakra classes instead
+  } // move this to the FormPreview component if you want to use chakra classes instead
 
-  #dummy-api {
-    visibility: none;
-    height: 0;
-    widht: 0;
-    z-index: -9999;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
+  // #dummy-api {
+  //   visibility: none;
+  //   height: 0;
+  //   widht: 0;
+  //   z-index: -9999;
+  //   position: absolute;
+  //   top: -9999px;
+  //   left: -9999px;
+  // }
 `

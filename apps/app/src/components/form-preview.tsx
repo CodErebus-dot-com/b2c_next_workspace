@@ -15,7 +15,7 @@ const FormPreview = () => {
     <form>
       <Box my={4}>
         {/* .intro */}
-        <Title color='brand.700'>
+        <Title color='brand.700' className='text-5xl'>
           {/* AD B2C expects a h2 element here and Title component by default is set to h2 */}
           Sign in with your email address
         </Title>
