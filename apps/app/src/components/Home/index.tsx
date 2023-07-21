@@ -1,12 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import {
-  ColorModeScript,
-  Box,
-  Flex,
-  Image as ChakraImage,
-} from '@chakra-ui/react'
+import { Box, Flex, Image as ChakraImage } from '@chakra-ui/react'
 import Image from 'next/image'
-import { theme } from '@pages/_app'
 import homeStyles from './homeStyles'
 import Api from '@components/api'
 import DummyApi from '@components/dummy-api'
@@ -19,7 +13,6 @@ import logo from '@images/Genesis_logo.png'
 const Home = () => {
   return (
     <>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Flex>
         <Box
           id='background_branding_container'

@@ -20,7 +20,8 @@
       "@images/*": ["public/images/*"],
       "@components/*": ["src/components/*"],
       "@styles/*": ["src/styles/*"],
-      "@root/*": ["./*"]
+      "@root/*": ["./*"],
+      "@src/*": ["src/*"]
     },
     "plugins": [
       {
