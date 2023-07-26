@@ -1,5 +1,5 @@
 import tailwindStyles from '@root/tw-styles'
-import Script from 'next/script'
+
 // CustomScript is a component that adds a script and a style tag to the DOM.
 // The script will apply the classNames from the dummy-api component to the api component.
 // The style tag will inject the processed tw-styles into the DOM.
@@ -15,9 +15,8 @@ const CustomScript = () => {
           }}
         />
       )}
-      <Script
+      <script
         data-test-id='test-script'
-        strategy='afterInteractive'
         id='custom-script'
         dangerouslySetInnerHTML={{
           __html: `
