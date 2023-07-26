@@ -17,7 +17,7 @@ const CustomScript = () => {
       )}
       <Script
         data-test-id='test-script'
-        strategy='worker'
+        strategy='afterInteractive'
         id='custom-script'
         dangerouslySetInnerHTML={{
           __html: `

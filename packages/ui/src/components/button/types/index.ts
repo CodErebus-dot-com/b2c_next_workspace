@@ -6,4 +6,5 @@ export type ButtonProps = {
   children?: ReactNode;
   className?: string;
   variation?: 'primary' | 'secondary';
+  onClick?: (event: any) => void
 };
