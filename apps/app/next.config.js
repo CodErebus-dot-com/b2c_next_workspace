@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     optimizeCss: true,
+    nextScriptWorkers: true,
   },
   transpilePackages: ['@acme/ui', '@acme/utils'],
 }
