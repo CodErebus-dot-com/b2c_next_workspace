@@ -37,7 +37,7 @@ const FormPreview = () => {
         </Box>
         <Box mt={3}>
           {/* .entry-item */}
-          <Box>
+          <Box className='flex justify-between'>
             <FormLabel className='text-lg'>Password</FormLabel>
             <Link color='brand.link'>Forgot your password?</Link>
           </Box>
@@ -58,7 +58,7 @@ const FormPreview = () => {
         </Title>
       </Box>
       <Box>
-        <Text color='gray.600'>
+        <Text color='gray.600' className='flex justify-between'>
           Don't have an account?
           <Link color='brand.link' ml={3}>
             Sign up now

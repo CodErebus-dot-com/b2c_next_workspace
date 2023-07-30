@@ -45,8 +45,6 @@ const CustomScript = () => {
             }
           
             syncNode(apiElem, dummyApiElem);
-          
-            console.log('API synchronized to DummyAPI');
             applyClassNamesToElements();
           }
           
@@ -88,8 +86,6 @@ const CustomScript = () => {
                 apiElem.classList.add(cls);
               }
             }
-          
-            console.log('classNames applied');
           }
 
           var isDev = window.location.hostname === "localhost"; // adjust according to your setup
