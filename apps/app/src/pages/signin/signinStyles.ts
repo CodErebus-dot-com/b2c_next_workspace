@@ -45,7 +45,7 @@ export default css.global`
   #dummy-api {
     visibility: none;
     height: 0;
-    widht: 0;
+    width: 0;
     z-index: -9999;
     position: absolute;
     top: -9999px;

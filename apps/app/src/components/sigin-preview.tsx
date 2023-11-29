@@ -3,7 +3,7 @@ import { Box, FormLabel, Input, Link, Text } from '@chakra-ui/react'
 import { Button, Title } from '@acme/ui'
 
 // FormPreview is a component that is used to preview what the form will look like when it is integrated with the AD B2C custom policy.
-const FormPreview = () => {
+const SigninPreview = () => {
   const highlightError = {
     '&.highlightError': {
       borderColor: 'brand.error',
@@ -69,4 +69,4 @@ const FormPreview = () => {
   )
 }
 
-export default FormPreview
+export default SigninPreview
