@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Flex, Image as ChakraImage } from '@chakra-ui/react'
 import Image from 'next/image'
-import signinStyles from './signinStyles'
+import signinStyles from '../../styles/signinStyles'
 import Api from '@components/api'
 import DummyApi from '@components/dummy-api'
 import CustomScript from '@components/custom-script'
