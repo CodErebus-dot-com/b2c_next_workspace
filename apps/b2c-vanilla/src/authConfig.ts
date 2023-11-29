@@ -1,18 +1,38 @@
-"use client";
 // Browser check variables
 // If you support IE, our recommendation is that you sign-in using Redirect APIs
 // If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
-const ua = window.navigator.userAgent;
-const msie = ua.indexOf("MSIE ");
-const msie11 = ua.indexOf("Trident/");
-const msedge = ua.indexOf("Edge/");
-const firefox = ua.indexOf("Firefox");
-const chrome = ua.indexOf("Chrome");
-const isIE = msie > 0 || msie11 > 0;
-const isEdge = msedge > 0;
-const isFirefox = firefox > 0; // Only needed if you need to support the redirect flow in Firefox incognito
-const isChrome = chrome > 0; // Only needed if you need to support the redirect flow in Chrome incognito
-const origin = window.location.origin;
+let windowObj: typeof window | undefined;
+
+if (typeof window !== "undefined") {
+  windowObj = window;
+}
+
+// Now you can use windowObj instead of window
+let ua,
+  msie,
+  msie11,
+  msedge,
+  firefox,
+  chrome,
+  isIE,
+  isEdge,
+  isFirefox,
+  isChrome,
+  origin;
+
+if (windowObj) {
+  ua = window.navigator.userAgent;
+  msie = ua.indexOf("MSIE ");
+  msie11 = ua.indexOf("Trident/");
+  msedge = ua.indexOf("Edge/");
+  firefox = ua.indexOf("Firefox");
+  chrome = ua.indexOf("Chrome");
+  isIE = msie > 0 || msie11 > 0;
+  isEdge = msedge > 0;
+  isFirefox = firefox > 0; // Only needed if you need to support the redirect flow in Firefox incognito
+  isChrome = chrome > 0; // Only needed if you need to support the redirect flow in Chrome incognito
+  origin = window.location.origin;
+}
 
 /**
  * Enter here the user flows and custom policies for your B2C application
