@@ -105,14 +105,19 @@
         </div>
         <div></div>
       </form> -->
-
-      <div>
-        <button id="cancel">Cancel</button>
+      <div class="buttons">
+        <button id="cancel" aria-label="Cancel" formnovalidate="">
+          Cancel
+        </button>
       </div>
-      <div>
+      <div class="intro">
         <p>Please provide the following details.</p>
       </div>
       <form>
+        <div id="passwordEntryMismatch" style="display: none">
+          The password entry fields do not match. Please enter the same password
+          in both fields and try again.
+        </div>
         <div id="requiredFieldMissing" style="display: none">
           A required field is missing. Please fill out all required fields and
           try again.

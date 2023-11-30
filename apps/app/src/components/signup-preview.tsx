@@ -35,6 +35,10 @@ const SignupPreview = () => {
       </Box>
       <form>
         <Box sx={isHidden}>
+          The password entry fields do not match. Please enter the same password
+          in both fields and try again.
+        </Box>
+        <Box sx={isHidden}>
           A required field is missing. Please fill out all required fields and
           try again.
         </Box>

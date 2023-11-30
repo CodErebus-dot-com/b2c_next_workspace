@@ -13,6 +13,10 @@ export const SignupTestApi = () => {
       </div>
 
       <form>
+        <div id='passwordEntryMismatch' style={{ display: 'none' }}>
+          The password entry fields do not match. Please enter the same password
+          in both fields and try again.
+        </div>
         <div id='requiredFieldMissing' style={{ display: 'none' }}>
           A required field is missing. Please fill out all required fields and
           try again.
