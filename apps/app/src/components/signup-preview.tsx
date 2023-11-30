@@ -131,7 +131,7 @@ const SignupPreview = () => {
                 </Link>
               </Box>
             </ListItem>
-            {/* <ListItem>
+            <ListItem>
               <Box className='relative flex'>
                 <Box></Box>
                 <Input
@@ -219,7 +219,7 @@ const SignupPreview = () => {
                   What is this?
                 </Link>
               </Box>
-            </ListItem> */}
+            </ListItem>
           </UnorderedList>
         </Box>
         <Box className='flex justify-center'>
