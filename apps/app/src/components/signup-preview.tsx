@@ -27,13 +27,8 @@ const SignupPreview = () => {
 
   return (
     <>
-      <Box my={10}>
-        <Text as='h1' fontSize='3xl' fontWeight='bold'>
-          User Details
-        </Text>
-      </Box>
       <Box>
-        <Button className='btn-slate'>Cancel</Button>
+        <Button className='m-4 btn-slate'>Cancel</Button>
       </Box>
       <Box>
         <Text sx={isHidden}>Please provide the following details.</Text>

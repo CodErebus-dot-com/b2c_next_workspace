@@ -4,9 +4,6 @@ export const SignupTestApi = () => {
   return (
     <>
       <div>
-        <h1>User Details</h1>
-      </div>
-      <div>
         <button id='cancel'>Cancel</button>
       </div>
       <div>
