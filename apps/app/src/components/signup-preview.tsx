@@ -75,12 +75,6 @@ const SignupPreview = () => {
                           sx={highlightError}
                           className='px-0 mr-4 my-2'
                         />
-                        <Text
-                          as='span'
-                          className='py-4 text-red-500 text-xl font-bold absolute top-0 right-0'
-                        >
-                          *
-                        </Text>
                         <Link as='a' display='none'>
                           What is this?
                         </Link>
@@ -96,12 +90,6 @@ const SignupPreview = () => {
                           sx={highlightError}
                           placeholder='Send Verification Code'
                         />
-                        <Text
-                          as='span'
-                          className='py-4 text-red-500 text-xl font-bold absolute top-0 right-0'
-                        >
-                          *
-                        </Text>
                         <Link as='a' display='none'>
                           What is this?
                         </Link>
@@ -152,12 +140,6 @@ const SignupPreview = () => {
                   className='px-0 my-2 mr-4'
                   sx={highlightError}
                 />
-                <Text
-                  as='span'
-                  className='py-4 text-red-500 text-xl font-bold absolute top-0 right-0'
-                >
-                  *
-                </Text>
                 <Link as='a' display='none'>
                   What is this?
                 </Link>
@@ -173,12 +155,6 @@ const SignupPreview = () => {
                   disabled={true}
                   sx={highlightError}
                 />
-                <Text
-                  as='span'
-                  className='py-4 text-red-500 text-xl font-bold absolute top-0 right-0'
-                >
-                  *
-                </Text>
                 <Link as='a' display='none'>
                   What is this?
                 </Link>
