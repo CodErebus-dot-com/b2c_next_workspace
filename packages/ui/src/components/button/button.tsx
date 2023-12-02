@@ -1,11 +1,7 @@
-import type { FC } from 'react'
-import { ButtonProps } from "./types";
+import type { FC } from 'react';
+import { ButtonProps } from './types';
 
-const Button: FC<ButtonProps> = ({
-  className,
-  children,
-  ...otherProps
-}) => (
+const Button: FC<ButtonProps> = ({ className, children, ...otherProps }) => (
   <button className={className} data-testid="CompRoot" {...otherProps}>
     {children}
   </button>

@@ -16,7 +16,7 @@
     "@acme/ui": "workspace:*",
     "@acme/utils": "workspace:*",
     "critters": "^0.0.19",
-    "next": "canary",
+    "next": "13.5.6",
     "prettier": "^3.0.0",
     "react": "latest",
     "react-dom": "latest",

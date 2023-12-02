@@ -6,7 +6,8 @@ export default css.global`
   }
 
   #background_branding_container {
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
     width: 100vw;
     background: linear-gradient(to right, #0f3e83, #0078d4, #3079ed, #00abec);
     -webkit-animation: fadeIn 1s;
@@ -45,7 +46,7 @@ export default css.global`
   #dummy-api {
     visibility: none;
     height: 0;
-    widht: 0;
+    width: 0;
     z-index: -9999;
     position: absolute;
     top: -9999px;

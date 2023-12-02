@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Flex, Image as ChakraImage } from '@chakra-ui/react'
 import Image from 'next/image'
-import homeStyles from './homeStyles'
+import signinStyles from '../../styles/signinStyles'
 import Api from '@components/api'
 import DummyApi from '@components/dummy-api'
 import CustomScript from '@components/custom-script'
@@ -10,7 +10,7 @@ import sisuIllustration from '@images/OTP-Authentication-Security.png'
 import logoBlur from '@images/Genesis_logo.svg'
 import logo from '@images/Genesis_logo.png'
 
-const Home = () => {
+const sigin = () => {
   return (
     <>
       <Flex>
@@ -70,11 +70,11 @@ const Home = () => {
       </Flex>
 
       {/* styling using styled jsx approach */}
-      <style jsx>{homeStyles}</style>
+      <style jsx>{signinStyles}</style>
 
       <CustomScript />
     </>
   )
 }
 
-export default Home
+export default sigin
