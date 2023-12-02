@@ -7,7 +7,6 @@ const SigninPreview = () => {
   const highlightError = {
     '&.highlightError': {
       borderColor: 'brand.error',
-      boxShadow: '0 0 0 1px brand.error',
     },
   }
 

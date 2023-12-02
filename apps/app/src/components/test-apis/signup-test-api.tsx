@@ -32,7 +32,7 @@ export const SignupTestApi = () => {
                   <ul>
                     <li style={{ display: 'inline' }}>
                       <div>
-                        <label style={{ display: 'none' }}>Email Address</label>
+                        <label>Email Address</label>
                         <div>Sample input level error</div>
                         <input type='email' className='highlightError' />
                         <a href='javascript:void(0)'>What is this?</a>
@@ -79,38 +79,6 @@ export const SignupTestApi = () => {
                 <label>Confirm New Password</label>
                 <div></div>
                 <input type='password' />
-                <a href='javascript:void(0)'>What is this?</a>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Given Name</label>
-                <div></div>
-                <input type='text' />
-                <a href='javascript:void(0)'>What is this?</a>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Surname</label>
-                <div></div>
-                <input type='text' />
-                <a href='javascript:void(0)'>What is this?</a>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Display Name</label>
-                <div></div>
-                <input type='text' />
-                <a href='javascript:void(0)'>What is this?</a>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>Profile Picture</label>
-                <div></div>
-                <input type='text' />
                 <a href='javascript:void(0)'>What is this?</a>
               </div>
             </li>

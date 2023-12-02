@@ -15,13 +15,6 @@ const SignupPreview = () => {
   const highlightError = {
     '&.highlightError': {
       borderColor: 'brand.error',
-      boxShadow: '0 0 0 1px brand.error',
-    },
-  }
-
-  const isHidden = {
-    '&.hidden': {
-      display: 'none',
     },
   }
 
@@ -56,14 +49,12 @@ const SignupPreview = () => {
                   <UnorderedList styleType='none' mx={0}>
                     <ListItem>
                       <Box mt={3}>
-                        <FormLabel className='text-lg' sx={isHidden}>
-                          Email Address
-                        </FormLabel>
+                        <FormLabel className='text-lg'>Email Address</FormLabel>
                         <Box color='brand.error' className='italic'></Box>
                         <Input
                           type='email'
                           sx={highlightError}
-                          className='px-0 mr-4 my-1'
+                          className='mr-4 my-1'
                         />
                         <Link as='a' display='none'>
                           What is this?
@@ -78,7 +69,7 @@ const SignupPreview = () => {
                         <Box color='brand.error' className='italic'></Box>
                         <Input
                           type='text'
-                          className='px-0 mr-4 my-1'
+                          className='mr-4 my-1'
                           disabled={true}
                           sx={highlightError}
                         />
@@ -108,7 +99,10 @@ const SignupPreview = () => {
                     >
                       Send new code
                     </Button>
-                    <Button id='emailVerificationControl_but_change_claims'>
+                    <Button
+                      id='emailVerificationControl_but_change_claims'
+                      className='my-8 mx-2 btn-blue'
+                    >
                       Change e-mail
                     </Button>
                   </Box>
@@ -124,7 +118,7 @@ const SignupPreview = () => {
                 <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='password'
-                  className='px-0 mr-4 my-1'
+                  className='mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -138,68 +132,8 @@ const SignupPreview = () => {
                 <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='password'
-                  className='px-0 mr-4 my-1'
+                  className='mr-4 my-1'
                   disabled={true}
-                  sx={highlightError}
-                />
-                <Link as='a' display='none'>
-                  What is this?
-                </Link>
-              </Box>
-            </ListItem>
-            <ListItem>
-              <Box mt={3}>
-                <FormLabel className='text-lg'>Given Name</FormLabel>
-                <Box color='brand.error' className='italic'></Box>
-                <Input
-                  type='text'
-                  disabled={true}
-                  className='px-0 mr-4 my-1'
-                  sx={highlightError}
-                />
-                <Link as='a' display='none'>
-                  What is this?
-                </Link>
-              </Box>
-            </ListItem>
-            <ListItem>
-              <Box mt={3}>
-                <FormLabel className='text-lg'>Surname</FormLabel>
-                <Box color='brand.error' className='italic'></Box>
-                <Input
-                  type='text'
-                  disabled={true}
-                  className='px-0 mr-4 my-1'
-                  sx={highlightError}
-                />
-                <Link as='a' display='none'>
-                  What is this?
-                </Link>
-              </Box>
-            </ListItem>
-            <ListItem>
-              <Box mt={3}>
-                <FormLabel className='text-lg'>Display Name</FormLabel>
-                <Box color='brand.error' className='italic'></Box>
-                <Input
-                  type='text'
-                  disabled={true}
-                  className='px-0 mr-4 my-1'
-                  sx={highlightError}
-                />
-                <Link as='a' display='none'>
-                  What is this?
-                </Link>
-              </Box>
-            </ListItem>
-            <ListItem>
-              <Box mt={3}>
-                <FormLabel className='text-lg'>Profile Picture</FormLabel>
-                <Box color='brand.error' className='italic'></Box>
-                <Input
-                  type='text'
-                  disabled={true}
-                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -209,9 +143,9 @@ const SignupPreview = () => {
             </ListItem>
           </UnorderedList>
         </Box>
-        <Box className='flex justify-center'>
-          <Button className='my-8 btn-blue'>Create</Button>
-          <Button className='m-4 btn-slate'>Cancel</Button>
+        <Box className='my-8 flex justify-center'>
+          <Button className='btn-rose'>Create</Button>
+          <Button className='btn-slate'>Cancel</Button>
         </Box>
         <Box>
           <Box color='brand.error' className='italic'></Box>
