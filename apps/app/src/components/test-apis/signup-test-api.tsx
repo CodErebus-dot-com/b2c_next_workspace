@@ -405,7 +405,7 @@ export const SignupTestApi = () => {
           <ul>
             <li>
               <div>
-                <label></label>
+                {/* <label></label> */}
                 <div></div>
                 <div>
                   <div>
@@ -422,6 +422,7 @@ export const SignupTestApi = () => {
                   <ul>
                     <li style={{ display: 'inline' }}>
                       <div>
+                        <label>Email Address</label>
                         <div></div>
                         <input type='email' placeholder='Email' />
                         <a>What is this?</a>
@@ -429,6 +430,7 @@ export const SignupTestApi = () => {
                     </li>
                     <li style={{ display: 'none' }}>
                       <div>
+                        <label>Verification Code</label>
                         <div></div>
                         <input
                           type='text'
@@ -460,6 +462,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>New Password</label>
                 <div></div>
                 <input type='password' placeholder='New Password' />
                 <a href='javascript:void(0)'>What is this?</a>
@@ -467,6 +470,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>Confirm New Password</label>
                 <div></div>
                 <input type='password' placeholder='Confirm New Password' />
                 <a href='javascript:void(0)'>What is this?</a>
@@ -474,6 +478,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>Given Name</label>
                 <div></div>
                 <input type='text' placeholder='Given Name' />
                 <a href='javascript:void(0)'>What is this?</a>
@@ -481,6 +486,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>Surname</label>
                 <div></div>
                 <input type='text' placeholder='Surname' />
                 <a href='javascript:void(0)'>What is this?</a>
@@ -488,6 +494,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>Display Name</label>
                 <div></div>
                 <input type='text' placeholder='Display Name' />
                 <a href='javascript:void(0)'>What is this?</a>
@@ -495,6 +502,7 @@ export const SignupTestApi = () => {
             </li>
             <li>
               <div>
+                <label>Profile Picture</label>
                 <div></div>
                 <input type='text' placeholder='Profile Picture' />
                 <a href='javascript:void(0)'>What is this?</a>

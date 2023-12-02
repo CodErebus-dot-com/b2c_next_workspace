@@ -51,7 +51,7 @@ const SignupPreview = () => {
           <UnorderedList styleType='none'>
             <ListItem>
               <Box>
-                <FormLabel>Email Address</FormLabel>
+                {/* <FormLabel>Email Address</FormLabel> */}
                 <Box></Box>
                 <Box>
                   <Box>
@@ -68,6 +68,7 @@ const SignupPreview = () => {
                   <UnorderedList styleType='none' mx={0}>
                     <ListItem>
                       <Box className='relative flex'>
+                        <FormLabel>Email Address</FormLabel>
                         <Box></Box>
                         <Input
                           type='email'
@@ -82,6 +83,7 @@ const SignupPreview = () => {
                     </ListItem>
                     <ListItem sx={isHidden}>
                       <Box>
+                        <FormLabel>Send Verification Code</FormLabel>
                         <Box></Box>
                         <Input
                           type='text'
@@ -133,6 +135,7 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='relative flex'>
+                <FormLabel>New Password</FormLabel>
                 <Box></Box>
                 <Input
                   type='password'
@@ -147,6 +150,7 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='relative flex'>
+                <FormLabel>Confirm New Password</FormLabel>
                 <Box></Box>
                 <Input
                   type='password'
@@ -162,6 +166,7 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='flex'>
+                <FormLabel>Given Name</FormLabel>
                 <Box></Box>
                 <Input
                   type='text'
@@ -177,11 +182,12 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='flex'>
+                <FormLabel>Surname</FormLabel>
                 <Box></Box>
                 <Input
                   type='text'
                   disabled={true}
-                  placeholder='Given Name'
+                  placeholder='Surname'
                   className='px-0 mr-4 my-2'
                   sx={highlightError}
                 />
@@ -192,6 +198,7 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='flex'>
+                <FormLabel>Display Name</FormLabel>
                 <Box></Box>
                 <Input
                   type='text'
@@ -207,6 +214,7 @@ const SignupPreview = () => {
             </ListItem>
             <ListItem>
               <Box className='flex'>
+                <FormLabel>Profile Picture</FormLabel>
                 <Box></Box>
                 <Input
                   type='text'
