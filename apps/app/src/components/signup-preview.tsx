@@ -27,70 +27,60 @@ const SignupPreview = () => {
 
   return (
     <>
-      <Box>
-        <Button className='m-4 btn-slate'>Cancel</Button>
-      </Box>
-      <Box>
-        <Text sx={isHidden}>Please provide the following details.</Text>
+      <Box color='brand.700' className='ml-4'>
+        <Text></Text>
       </Box>
       <form>
-        <Box sx={isHidden}>
-          The password entry fields do not match. Please enter the same password
-          in both fields and try again.
+        <Box color='brand.error' className='italic ml-4 my-4'>
+          Error messages will be handled by AD B2C.
         </Box>
-        <Box sx={isHidden}>
-          A required field is missing. Please fill out all required fields and
-          try again.
-        </Box>
-        <Box sx={isHidden}>
-          One or more fields are filled out incorrectly. Please check your
-          entries and try again.
-        </Box>
-        <Box sx={isHidden}></Box>
+        <Box color='brand.error' className='italic ml-4 my-4'></Box>
+        <Box color='brand.error' className='italic ml-4 my-4'></Box>
+        <Box color='brand.error' className='italic ml-4 my-4'></Box>
         <Box>
           <UnorderedList styleType='none'>
             <ListItem>
               <Box>
-                {/* <FormLabel>Email Address</FormLabel> */}
+                <FormLabel className='text-lg'></FormLabel>
                 <Box></Box>
                 <Box>
                   <Box>
-                    <Box sx={isHidden}>
-                      Verification is necessary. Please click Send button.
-                    </Box>
+                    <Box color='brand.error' className='italic ml-4'></Box>
                   </Box>
                   <Box>
-                    <Box sx={isHidden}></Box>
+                    <Box color='brand.error' className='italic ml-4'></Box>
                   </Box>
                   <Box>
-                    <Box sx={isHidden}></Box>
+                    <Box color='brand.error' className='italic ml-4'></Box>
                   </Box>
                   <UnorderedList styleType='none' mx={0}>
                     <ListItem>
-                      <Box className='relative flex'>
-                        <FormLabel>Email Address</FormLabel>
-                        <Box></Box>
+                      <Box mt={3}>
+                        <FormLabel className='text-lg' sx={isHidden}>
+                          Email Address
+                        </FormLabel>
+                        <Box color='brand.error' className='italic'></Box>
                         <Input
                           type='email'
-                          placeholder='Email Address'
                           sx={highlightError}
-                          className='px-0 mr-4 my-2'
+                          className='px-0 mr-4 my-1'
                         />
                         <Link as='a' display='none'>
                           What is this?
                         </Link>
                       </Box>
                     </ListItem>
-                    <ListItem sx={isHidden}>
-                      <Box>
-                        <FormLabel>Send Verification Code</FormLabel>
-                        <Box></Box>
+                    <ListItem>
+                      <Box mt={3}>
+                        <FormLabel className='text-lg'>
+                          Send Verification Code
+                        </FormLabel>
+                        <Box color='brand.error' className='italic'></Box>
                         <Input
                           type='text'
-                          className='px-0 my-2 mr-4'
+                          className='px-0 mr-4 my-1'
                           disabled={true}
                           sx={highlightError}
-                          placeholder='Send Verification Code'
                         />
                         <Link as='a' display='none'>
                           What is this?
@@ -98,32 +88,27 @@ const SignupPreview = () => {
                       </Box>
                     </ListItem>
                   </UnorderedList>
-                  <Box sx={isHidden}></Box>
+                  <Box color='brand.error' className='italic'></Box>
                   <Box className='flex justify-center'>
                     <Button
                       id='emailVerificationControl_but_send_code'
-                      className='my-8 btn-rose'
+                      className='my-8 btn-blue'
                     >
                       Send verification code
                     </Button>
                     <Button
                       id='emailVerificationControl_but_verify_code'
                       className='my-8 mx-2 btn-blue'
-                      sx={isHidden}
                     >
                       Verify code
                     </Button>
                     <Button
                       id='emailVerificationControl_but_send_new_code'
                       className='my-8 mx-2 btn-blue'
-                      sx={isHidden}
                     >
                       Send new code
                     </Button>
-                    <Button
-                      id='emailVerificationControl_but_change_claims'
-                      sx={isHidden}
-                    >
+                    <Button id='emailVerificationControl_but_change_claims'>
                       Change e-mail
                     </Button>
                   </Box>
@@ -134,13 +119,12 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='relative flex'>
-                <FormLabel>New Password</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>New Password</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='password'
-                  placeholder='New Password'
-                  className='px-0 my-2 mr-4'
+                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -149,13 +133,12 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='relative flex'>
-                <FormLabel>Confirm New Password</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>Confirm New Password</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='password'
-                  placeholder='Confirm New Password'
-                  className='px-0 my-2 mr-4'
+                  className='px-0 mr-4 my-1'
                   disabled={true}
                   sx={highlightError}
                 />
@@ -165,14 +148,13 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='flex'>
-                <FormLabel>Given Name</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>Given Name</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='text'
                   disabled={true}
-                  placeholder='Given Name'
-                  className='px-0 mr-4 my-2'
+                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -181,14 +163,13 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='flex'>
-                <FormLabel>Surname</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>Surname</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='text'
                   disabled={true}
-                  placeholder='Surname'
-                  className='px-0 mr-4 my-2'
+                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -197,14 +178,13 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='flex'>
-                <FormLabel>Display Name</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>Display Name</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='text'
                   disabled={true}
-                  placeholder='Display Name'
-                  className='px-0 mr-4 my-2'
+                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -213,14 +193,13 @@ const SignupPreview = () => {
               </Box>
             </ListItem>
             <ListItem>
-              <Box className='flex'>
-                <FormLabel>Profile Picture</FormLabel>
-                <Box></Box>
+              <Box mt={3}>
+                <FormLabel className='text-lg'>Profile Picture</FormLabel>
+                <Box color='brand.error' className='italic'></Box>
                 <Input
                   type='text'
                   disabled={true}
-                  placeholder='Profile Picture'
-                  className='px-0 mr-4 my-2'
+                  className='px-0 mr-4 my-1'
                   sx={highlightError}
                 />
                 <Link as='a' display='none'>
@@ -232,9 +211,10 @@ const SignupPreview = () => {
         </Box>
         <Box className='flex justify-center'>
           <Button className='my-8 btn-blue'>Create</Button>
+          <Button className='m-4 btn-slate'>Cancel</Button>
         </Box>
         <Box>
-          <Box></Box>
+          <Box color='brand.error' className='italic'></Box>
         </Box>
       </form>
     </>

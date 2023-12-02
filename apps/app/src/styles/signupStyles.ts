@@ -6,7 +6,8 @@ export default css.global`
   }
 
   #background_branding_container {
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
     width: 100vw;
     background: linear-gradient(to right, #0f3e83, #0078d4, #3079ed, #00abec);
     -webkit-animation: fadeIn 1s;
