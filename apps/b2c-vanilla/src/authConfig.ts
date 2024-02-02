@@ -45,9 +45,7 @@ export const b2cPolicies = {
   },
   authorities: {
     signUpSignIn: {
-      authority:
-        "https://vsgenesisx.b2clogin.com/vsgenesisx.onmicrosoft.com/B2C_1_SISUPolicy",
-      // https://login.microsoftonline.com/88f670a5-0857-4253-8b2d-519b69b3526c/oauth2/v2.0/token
+      authority: process.env['NEXT_PUBLIC_SISO_AUTHORITY'], // "https://vsgenesisx.b2clogin.com/vsgenesisx.onmicrosoft.com/B2C_1_SISUPolicy"
     },
   },
   authorityDomain: "vsgenesisx.b2clogin.com",
@@ -56,7 +54,7 @@ export const b2cPolicies = {
 // Config object to be passed to Msal on creation
 export const authConfig = {
   auth: {
-    clientId: "5a9f9a4c-b9f6-4085-988f-4f95e44897dc",
+    clientId: process.env['NEXT_PUBLIC_CLIENT_ID'],
     authority: b2cPolicies.authorities.signUpSignIn.authority,
     knownAuthorities: [b2cPolicies.authorityDomain],
     redirectUri: `${origin}/`,
