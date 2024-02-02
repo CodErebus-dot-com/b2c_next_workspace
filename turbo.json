@@ -13,7 +13,7 @@
       "outputs": []
     },
     "dev": {
-      "cache": false
+      "dotEnv": [".env.development.local"]
     },
     "start": {
       "cache": false
@@ -21,8 +21,5 @@
     "clean": {
       "cache": false
     }
-  },
-  "globalDependencies": [
-      ".env.development.local"
-  ]
+  }
 }
