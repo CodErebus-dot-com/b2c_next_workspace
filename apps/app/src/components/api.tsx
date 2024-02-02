@@ -1,5 +1,5 @@
-import { SigninTestApi, SignupTestApi } from './test-apis'
 import { useRouter } from 'next/router'
+import { SigninTestApi, SignupTestApi } from './test-apis'
 
 const Api = () => {
   const router = useRouter()
@@ -7,7 +7,7 @@ const Api = () => {
 
   return (
     <div id='api' role='main'>
-      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'development' &&
+      {process.env.NEXT_PUBLIC_NODE_ENV === 'development' &&
         (signinPath ? <SigninTestApi /> : <SignupTestApi />)}
     </div>
   )

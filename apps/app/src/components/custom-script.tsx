@@ -7,7 +7,7 @@ const CustomScript = () => {
   return (
     <>
       {/* the generated tailwindStyles should be used only for production */}
-      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' && (
+      {process.env.NEXT_PUBLIC_NODE_ENV === 'production' && (
         <style
           data-test-id='test-style'
           dangerouslySetInnerHTML={{

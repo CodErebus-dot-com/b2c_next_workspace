@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Flex, Image as ChakraImage } from '@chakra-ui/react'
+import { Box, Image as ChakraImage, Flex } from '@chakra-ui/react'
+import Api from '@components/api'
+import CustomScript from '@components/custom-script'
+import DummyApi from '@components/dummy-api'
+import logo from '@images/Genesis_logo.png'
+import logoBlur from '@images/Genesis_logo.svg'
+import sisuIllustration from '@images/OTP-Authentication-Security.png'
+import sisuIllustrationBlur from '@images/OTP-Authentication-Security.svg'
 import Image from 'next/image'
 import signinStyles from '../../styles/signinStyles'
-import Api from '@components/api'
-import DummyApi from '@components/dummy-api'
-import CustomScript from '@components/custom-script'
-import sisuIllustrationBlur from '@images/OTP-Authentication-Security.svg'
-import sisuIllustration from '@images/OTP-Authentication-Security.png'
-import logoBlur from '@images/Genesis_logo.svg'
-import logo from '@images/Genesis_logo.png'
 
 const sigin = () => {
   return (
@@ -18,7 +18,7 @@ const sigin = () => {
           id='background_branding_container'
           data-tenant-branding-background-color='true'
         >
-          {process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' ? (
+          {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
             <ChakraImage
               data-tenant-branding-background='true'
               alt='sign-in sign-up illustration'
@@ -41,7 +41,7 @@ const sigin = () => {
                 <td>
                   <div>
                     <div>
-                      {process.env['NEXT_PUBLIC_NODE_ENV'] === 'production' ? (
+                      {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
                         <ChakraImage
                           data-tenant-branding-logo='true'
                           className='companyLogo'
