@@ -2,8 +2,8 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      "env": ["NEXT_PUBLIC_*"],
       "dependsOn": ["^build"],
-      "dotEnv": [".env.development.local"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "test": {
@@ -14,7 +14,7 @@
       "outputs": []
     },
     "dev": {
-      "dotEnv": [".env.development.local"]
+      "cache": false
     },
     "start": {
       "cache": false
