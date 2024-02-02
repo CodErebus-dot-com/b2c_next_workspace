@@ -1,5 +1,5 @@
+import { useInstance, useIsAuthenticated } from "@hooks";
 import { AuthContext } from "@src/contexts";
-import { useIsAuthenticated, useInstance } from "@hooks";
 
 interface AuthProviderProps {
   children: React.ReactNode;

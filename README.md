@@ -1,59 +1,78 @@
----
-name: Monorepo with Turborepo
-slug: monorepo-turborepo
-description: A monorepo with a Next.js login page which will be managed by Azure AD B2C and another Next.js site that will use the login page.
-framework: Next.js
-useCase:
-  - Monorepos
-  - Documentation
-css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/monorepo&project-name=monorepo&repository-name=monorepo&root-directory=apps/app&install-command=pnpm%20install&build-command=cd%20..%2F..%20%26%26%20pnpm%20build%20--filter%3Dapp...&ignore-command=npx%20turbo-ignore
-demoUrl: https://solutions-monorepo.vercel.sh
-relatedTemplates:
-  - monorepo-nx
-  - turborepo-next-basic
-  - turborepo-sveltekit-starter
----
+# Azure ADB2C Integration and Customization
 
-# Monorepo
+This project is a Proof of Concept (PoC) that demonstrates how to integrate Azure Active Directory B2C (ADB2C) into a React/Nextjs application without using external packages like @msal/react. It also showcases how to customize the AD user interfaces also in a React/Nextjs application.
 
-This is a monorepo example with a single Next.js site ([./apps/app](./apps/app)) that has installed two local packages:
+> **NOTE:** This README is also a WIP and **_might_** not be 100% accurate.
 
-- [./packages/ui](./packages/ui): Exports UI components that use TypeScript and Tailwind CSS and is compiled by SWC.
-- [./packages/utils](./packages/utils): Exports utility functions that use TypeScript.
+## Problem Statement
 
-The monorepo is using [Turborepo](https://turborepo.org/) and [pnpm workspaces](https://pnpm.io/workspaces) to link packages together.
+The integration of Azure ADB2C into React applications is possible through packages like @msal/react. However, these packages primarily focus on authentication rather than providing customization options for the login and signup pages. To customize these pages, developers are left with the task of writing HTML with internal CSS and JavaScript, which can be time-consuming and restrictive due to the limitation of relying on internal stylesheets and scripts.
 
-For more examples on monorepos check out the [official Turborepo examples](https://github.com/vercel/turborepo/tree/main/examples).
+Most projects create their own design systems and component libraries which they use in all of their apps but due to restrictive nature of ADB2C, these components cannot be directly used. So, they end up creating their [HTML template](https://learn.microsoft.com/en-us/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-user-flow) or have to engineer some solution that would allow them to customize these interfaces with their favorite styling solutions/component libraries.
 
-## Demo
+## Solution
 
-https://solutions-monorepo.vercel.sh
+This PoC addresses the limitation by providing a solution that allows developers to customize the login and signup pages of Azure ADB2C using different styling solutions. It consists of two applications: app and b2c-vanilla. The app application is responsible for customizing the Azure ADB2C pages, while the b2c-vanilla application is just to demonstrate the integration of Azure ADB2C without relying on a third-party library like MSAL.
 
-## How to Use
+## Application Details
 
-You can choose from one of the following two methods to use this repository:
+`app`: The app is a Nextjs application designed to demonstrate how to customize Azure's login and signup pages using various CSS solutions. The motivation behind this is to show the flexibility of different styling solutions for customization purposes. The following CSS solutions are used:
 
-### One-Click Deploy
+- Chakra UI
+- CSS Modules
+- Styled-jsx
+- TailwindCSS
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+The app contains a DummyApi component, which is an exact replica of the ADB2C's UI API. This component serves as a local environment for testing and previewing the customizations made to the login and signup pages. After deploying the app which also contains a script, the customizations are automatically applied to the actual ADB2C's actual UI API in production.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/monorepo&project-name=monorepo&repository-name=monorepo&root-directory=apps/app&install-command=pnpm%20install&build-command=cd%20..%2F..%20%26%26%20pnpm%20build%20--filter%3Dapp...&ignore-command=npx%20turbo-ignore)
+`b2c-vanilla`: The b2c-vanilla app demonstrates how to integrate Azure ADB2C without relying on a third-party library like MSAL provided by Azure. This app contains a navigation bar and a login button. Clicking the login button redirects the user to the customized interface. Once the user logs in, the login button changes to a logout button.
 
-### Clone and Deploy
+## Getting Started
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+1. Install dependencies:
 
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/monorepo monorepo
+```sh
+pnpm install
 ```
 
-Next, run `app` in development mode:
+2. To run the `app` app:
 
-```bash
-pnpm dev
+```sh
+pnpm --filter app dev
 ```
 
-The app should be up and running at http://localhost:3000.
+3. To run the `b2c-vanilla` app:
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=monorepo-example) ([Documentation](https://nextjs.org/docs/deployment)).
+```sh
+pnpm --filter b2c-vanilla dev
+```
+
+> **NOTE:** Do not foget to add the AD based configs in apps/b2c-vanilla/authConfig.ts
+
+4. To build all the workspaces (apps and shared packages),
+
+```sh
+pnpm build
+```
+
+## Deployment
+
+- After the customization inside of `app` app, run the `build` command and deploy it to your favourite service. (I have used Vercel for this PoC).
+- Take the deployment url and provide it to ADB2C's Page as the `Custom Page URI` in Page Layouts.
+
+## Limitations
+
+This PoC is still a WIP and thus comes with limitations:
+
+Not the best solution in terms of performance and the builds are heavier compared to the recommended approach. Azure has to make request to the deployed url to get the resource which is blocking causing **_waterfall problem_** everytime the page is requested.
+
+## Roadmap
+
+The immediate roadmap items are mostly optimazation for now:
+
+- **Script**: Some alternative algorithm to auto apply classes
+- **Tailwind**: An approach to load only the necessary tailwind and not the entire tailwind artifact and also to further minifying and compressing css (cssnano and brotli)
+- **App**: Regular nextjs/react optimization
+- **Third Party**: Solutions to make other assets (svgs etc) optimzed
+- **Popup/Modal Support**: Adding modal alternative without relying on msal
+- **With MSAL**: Integration with @msal/react
