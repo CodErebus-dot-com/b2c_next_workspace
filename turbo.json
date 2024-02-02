@@ -21,5 +21,8 @@
     "clean": {
       "cache": false
     }
-  }
+  },
+  "globalDependencies": [
+      ".env.development.local"
+  ]
 }
