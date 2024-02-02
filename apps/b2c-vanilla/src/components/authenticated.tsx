@@ -1,16 +1,18 @@
-import { ReactNode, useContext } from 'react';
-import { AuthContext } from '@contexts';
+import { AuthContext } from "@contexts";
+import { ReactNode, useContext } from "react";
 
 interface AuthenticatedTemplateProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
-export const AuthenticatedTemplate = ({ children }: AuthenticatedTemplateProps) => {
-    const { isAuthenticated } = useContext(AuthContext)
+export const AuthenticatedTemplate = ({
+  children,
+}: AuthenticatedTemplateProps): JSX.Element | null => {
+  const { isAuthenticated } = useContext(AuthContext);
 
-    if (isAuthenticated) {
-        return children;
-    }
+  if (isAuthenticated) {
+    return <>{children}</>;
+  }
 
-    return null;
-}
+  return null;
+};
