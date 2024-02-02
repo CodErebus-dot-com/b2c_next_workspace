@@ -3,6 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "dotEnv": [".env.development.local"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "test": {
