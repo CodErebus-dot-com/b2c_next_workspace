@@ -1,16 +1,16 @@
 "use client";
-import Image from "next/image";
-import styled from "@emotion/styled";
-import { useContext } from "react";
 import { AuthContext } from "@contexts";
+import styled from "@emotion/styled";
 import logo from "@images/Genesis_logo.png";
-import Link from "next/link";
 import {
+  AuthenticatedTemplate,
   SignInButton,
   SignOutButton,
-  AuthenticatedTemplate,
   UnauthenticatedTemplate,
 } from "@src/components";
+import Image from "next/image";
+import Link from "next/link";
+import { useContext } from "react";
 
 const StyledHead = styled.header`
   display: flex;
@@ -62,7 +62,13 @@ export const Header = () => {
 
   return (
     <StyledHead>
-      <Image src={logo} width={75} height={75} alt='Genesis Logo' />
+      <Image
+        src={logo}
+        width={75}
+        height={75}
+        style={{ width: "100px", height: "auto" }}
+        alt='GenesisX Logo'
+      />
       <h1 className='text-5xl font-extrabold text-emerald-700 text-center mt-4 mb-4'>
         {/* Alternative to AuthenticatedTemplate and UnauthenticatedTemplate */}
         {isAuthenticated ? "My Account" : "Sample App"}
