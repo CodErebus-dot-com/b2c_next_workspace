@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@acme/ui";
+import { useToast } from "@chakra-ui/react";
 import { setIdToken } from "@src/authService";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -8,6 +9,7 @@ export default function Home() {
   useEffect(() => {
     setIdToken();
   }, []);
+  const toast = useToast();
 
   return (
     <div className='bg-gray-100 min-h-screen py-10'>
@@ -28,9 +30,14 @@ export default function Home() {
         <div className='flex justify-center mt-6'>
           <Button
             className='btn-rose'
-            onClick={() => {
-              alert("Hi There!");
-            }}
+            onClick={() =>
+              toast({
+                title: "Hi There 👋",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+              })
+            }
           >
             Click Me
           </Button>
