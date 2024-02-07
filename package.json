@@ -7,6 +7,8 @@
     "packages/*"
   ],
   "scripts": {
+    "dev:app": "pnpm --filter app dev",
+    "dev:b2c": "pnpm --filter b2c-vanilla dev",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "start": "turbo run start",

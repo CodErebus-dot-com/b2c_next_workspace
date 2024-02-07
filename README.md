@@ -71,7 +71,7 @@ Not the best solution in terms of performance and the builds are heavier compare
 The immediate roadmap items are mostly optimazation for now:
 
 - **Script**: Some alternative algorithm to auto apply classes
-- **Tailwind**: An approach to load only the necessary tailwind and not the entire tailwind artifact and also to further minifying and compressing css (cssnano and brotli)
+- **Tailwind**: Minification and compression of css (cssnano and brotli)
 - **App**: Regular nextjs/react optimization
 - **Third Party**: Solutions to make other assets (svgs etc) optimzed
 - **Popup/Modal Support**: Adding modal alternative without relying on msal
