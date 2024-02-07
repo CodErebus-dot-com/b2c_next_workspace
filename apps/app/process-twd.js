@@ -7,12 +7,13 @@ const fs = require('fs')
 const postcss = require('postcss')
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
 
 // Read the CSS from globals.css
 const css = fs.readFileSync('./src/styles/globals.css', 'utf8')
 
 // Process the CSS
-postcss([tailwindcss, autoprefixer])
+postcss([tailwindcss, autoprefixer, cssnano])
   .process(css, { from: undefined })
   .then((result) => {
     // Write the CSS to a JS file

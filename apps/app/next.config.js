@@ -1,3 +1,7 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.NEXT_PUBLIC_NODE_ENV === 'development',
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -6,4 +10,4 @@ const nextConfig = {
   transpilePackages: ['@acme/ui', '@acme/utils'],
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)
