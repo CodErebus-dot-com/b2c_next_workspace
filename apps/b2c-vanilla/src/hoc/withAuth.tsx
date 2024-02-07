@@ -17,7 +17,14 @@ export function withAuth<T extends {}>(
     useEffect(() => {
       if (!isAuthenticated) {
         router.push("/");
-        <ToastContainer />;
+        toast({
+          title: "Protected Route",
+          description: "Please login to access Profile",
+          status: "warning",
+          position: "bottom-left",
+          duration: 5000,
+          isClosable: true,
+        });
       } else {
         router.push(window.location.pathname);
       }
@@ -30,11 +37,3 @@ export function withAuth<T extends {}>(
     );
   };
 }
-toast({
-  title: "Protected Route",
-  description: "Please login to access Profile",
-  status: "warning",
-  position: "bottom-left",
-  duration: 5000,
-  isClosable: true,
-});
