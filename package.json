@@ -9,6 +9,8 @@
   "scripts": {
     "dev:app": "pnpm --filter app dev",
     "dev:b2c": "pnpm --filter b2c-vanilla dev",
+    "analyze:app": "cross-env ANALYZE=true pnpm dev:app",
+    "analyze:b2c": "cross-env ANALYZE=true pnpm dev:b2c",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "start": "turbo run start",
@@ -24,6 +26,7 @@
     "framer-motion": "^10.12.16"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.28.0",
     "eslint-config-turbo": "latest",
     "turbo": "^1.8.3"
