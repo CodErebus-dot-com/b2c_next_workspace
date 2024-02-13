@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Header } from "@components";
 import { AuthProvider } from "@providers";
-import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -30,7 +29,6 @@ export default function RootLayout({
           </AuthProvider>
         </ChakraProvider>
         <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );

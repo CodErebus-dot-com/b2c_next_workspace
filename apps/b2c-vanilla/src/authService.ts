@@ -1,4 +1,3 @@
-import { track } from "@vercel/analytics";
 import Cookies from "js-cookie";
 import { v4 as uuidv4 } from "uuid";
 import { authConfig } from "./authConfig";
@@ -12,7 +11,6 @@ export const signInRedirect = () => {
     responseType,
     scope,
   } = authConfig.auth;
-  track("Signin");
   const authEndpoint = `${authority}/oauth2/v2.0/authorize`;
   const url = `${authEndpoint}?client_id=${clientId}&response_type=${responseType}&redirect_uri=${redirectUri}&response_mode=${responseMode}&scope=${scope}&nonce=${generateNonce()}`;
   window.location.assign(url);
@@ -74,7 +72,6 @@ export const signOutRedirect = () => {
   const { authority, redirectUri } = authConfig.auth;
   const clientRequestId = uuidv4();
   const url = `${authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${redirectUri}&client-request-id=${clientRequestId}`;
-  track("Signout");
   clearAuthData();
   window.location.assign(url);
 };
