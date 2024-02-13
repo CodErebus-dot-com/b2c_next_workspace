@@ -15,7 +15,7 @@ const CustomScript = () => {
           }}
         />
       )}
-      {/* <script
+      <script
         data-test-id='test-script'
         id='custom-script'
         dangerouslySetInnerHTML={{
@@ -91,102 +91,6 @@ const CustomScript = () => {
           var isDev = window.location.hostname === "localhost"; // adjust according to your setup
           isDev ? window.onload = applyClassNamesToElements : applyClassNamesToElements();
         `,
-        }}
-      /> */}
-
-      {/* Approach3: string manipulation */}
-      <script
-        data-test-id='test-script'
-        id='custom-script'
-        dangerouslySetInnerHTML={{
-          __html: `
-            const classCache = new Map();
-            const childrenCache = new WeakMap();
-
-            function memoizedGetClassList(element) {
-              if (!classCache.has(element)) {
-                classCache.set(element, element.classList);
-              }
-              return classCache.get(element);
-            }
-
-            function memoizedGetChildren(element) {
-              if (!childrenCache.has(element)) {
-                childrenCache.set(element, Array.from(element.querySelectorAll('*')));
-              }
-              return childrenCache.get(element);
-            }
-
-            function syncAPItoDummyAPI() {
-              const apiElem = document.getElementById('api');
-              const dummyApiElem = document.getElementById('dummy-api');
-
-              if (!apiElem || !dummyApiElem) {
-                console.error('Invalid IDs for API or DummyAPI');
-                return;
-              }
-
-              if (!apiElem.hasChildNodes()) {
-                console.log('API does not have any child nodes, skipping sync process.');
-                return;
-              }
-
-              syncNode(apiElem, dummyApiElem);
-              applyClassNamesToElements();
-            }
-
-            function syncNode(apiNode, dummyApiNode) {
-              let newClasses = dummyApiNode.className; 
-              apiNode.className = newClasses;  // Assign all at once
-
-              const dummyApiChildren = memoizedGetChildren(dummyApiNode);
-              const apiNodeChildren = memoizedGetChildren(apiNode);
-
-              for (let i =  0; i < dummyApiChildren.length; i++) {
-                const dummyChild = dummyApiChildren[i];
-                let apiChild = apiNodeChildren[i];
-                if (!apiChild || apiChild.tagName !== dummyChild.tagName) {
-                  apiChild = dummyChild.cloneNode(true);
-                  apiNode.insertBefore(apiChild, apiNode.children[i]);
-                }
-                syncNode(apiChild, dummyChild);
-              }
-            }
-
-            function applyClassNamesToElements() {
-              const apiElems = memoizedGetChildren(document.getElementById('api'));
-              const dummyApiElems = memoizedGetChildren(document.getElementById('dummy-api'));
-
-              if (apiElems.length !== dummyApiElems.length) {
-                logError(apiElems, dummyApiElems);
-                syncAPItoDummyAPI();
-                return;
-              }
-
-              for (let i =  0; i < apiElems.length; i++) {
-                console.log('testing...')
-                const apiElem = apiElems[i];
-                const dummyApiElem = dummyApiElems[i];
-                
-                // Apply classes by building the full class string
-                let newClasses = dummyApiElem.className;
-                apiElem.className = newClasses;
-              }
-            }
-
-            function logError(apiElems, dummyApiElems) {
-              const errorDetails = {
-                apiElemCount: apiElems.length,
-                dummyApiElemCount: dummyApiElems.length,
-                apiElemTags: apiElems.map(elem => elem.tagName),
-                dummyApiElemTags: dummyApiElems.map(elem => elem.tagName),
-              };
-              console.warn('API and Dummy API structures do not match', errorDetails);
-            }
-
-            var isDev = window.location.hostname === "localhost"; // adjust according to your setup
-            isDev ? window.onload = applyClassNamesToElements : applyClassNamesToElements();
-          `,
         }}
       />
     </>
