@@ -17,7 +17,7 @@ const sigin = () => {
           id='background_branding_container'
           data-tenant-branding-background-color='true'
         >
-          {process.env.NEXT_PUBLIC_NODE_ENV === 'prduction' ? (
+          {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
             <ChakraImage
               data-tenant-branding-background='true'
               alt='sign-in sign-up illustration'
