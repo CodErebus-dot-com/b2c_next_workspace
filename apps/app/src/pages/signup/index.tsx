@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Image as ChakraImage, Flex } from '@chakra-ui/react'
 import Api from '@components/api'
 import CustomScript from '@components/custom-script'
 import DummyApi from '@components/dummy-api'
@@ -21,23 +21,23 @@ const sigup = () => {
                 <td>
                   <div>
                     <div>
-                      {/* {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
+                      {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
                         <ChakraImage
                           data-tenant-branding-logo='true'
                           className='companyLogo'
                           alt='GenesisX logo'
                         />
-                      ) : ( */}
-                      <Image
-                        src={logo}
-                        alt='GenesiX Logo'
-                        width={100}
-                        height={0}
-                        style={{ width: '100px', height: 'auto' }}
-                        blurDataURL={`${logoBlur}`}
-                        placeholder='blur'
-                      />
-                      {/* )} */}
+                      ) : (
+                        <Image
+                          src={logo}
+                          alt='GenesiX Logo'
+                          width={100}
+                          height={0}
+                          style={{ width: '100px', height: 'auto' }}
+                          blurDataURL={`${logoBlur}`}
+                          placeholder='blur'
+                        />
+                      )}
                       <Api />
                       <DummyApi />
                     </div>
@@ -51,21 +51,21 @@ const sigup = () => {
           id='background_branding_container'
           data-tenant-branding-background-color='true'
         >
-          {/* {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
+          {process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? (
             <ChakraImage
               data-tenant-branding-background='true'
               alt='sign-in sign-up illustration'
             />
-          ) : ( */}
-          <Image
-            src={sisuIllustration}
-            alt='sign-in sign-up illustration'
-            width={1000}
-            height={1000}
-            blurDataURL={`${sisuIllustrationBlur}`}
-            placeholder='blur'
-          />
-          {/* )} */}
+          ) : (
+            <Image
+              src={sisuIllustration}
+              alt='sign-in sign-up illustration'
+              width={1000}
+              height={1000}
+              blurDataURL={`${sisuIllustrationBlur}`}
+              placeholder='blur'
+            />
+          )}
         </Box>
       </Flex>
 
