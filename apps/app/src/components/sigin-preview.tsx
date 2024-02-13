@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Button, Title } from '@acme/ui'
 import { Box, FormLabel, Input, Link, Text } from '@chakra-ui/react'
+import { Button, Title } from '@acme/ui'
 
 // FormPreview is a component that is used to preview what the form will look like when it is integrated with the AD B2C custom policy.
 const SigninPreview = () => {
@@ -14,7 +14,7 @@ const SigninPreview = () => {
     <form>
       <Box my={10}>
         {/* .intro */}
-        <Title color='brand.900'>
+        <Title color='brand.700'>
           {/* AD B2C expects a h2 element here and Title component by default is set to h2 */}
           Sign in with your email address
         </Title>
