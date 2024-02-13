@@ -25,7 +25,6 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@vercel/examples-ui": "^1.0.4",
-    "@vercel/speed-insights": "^1.0.9",
     "framer-motion": "^10.12.16"
   },
   "devDependencies": {
