@@ -71,7 +71,7 @@ Not the best solution in terms of performance and the builds are heavier compare
 The immediate roadmap items are mostly optimazation for now:
 
 - **Script**: Some alternative algorithm to auto apply classes
-- **App**: Regular nextjs/react optimization
+- **App**: Regular nextjs/react optimization (use [next-image-export-optimizer](https://www.npmjs.com/package/next-image-export-optimizer) for images)
 - **Third Party**: Solutions to make other assets (svgs etc) optimzed
 - **Popup/Modal Support**: Adding modal alternative without relying on msal
 - **With MSAL**: Integration with @msal/react

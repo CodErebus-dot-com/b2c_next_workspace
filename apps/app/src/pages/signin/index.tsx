@@ -6,7 +6,7 @@ import logo from '@images/Genesis_logo.png'
 import logoBlur from '@images/Genesis_logo.svg'
 import sisuIllustration from '@images/OTP-Authentication-Security.png'
 import sisuIllustrationBlur from '@images/OTP-Authentication-Security.svg'
-import Image from 'next/image'
+import ExportedImage from 'next-image-export-optimizer'
 import signinStyles from '../../styles/signinStyles'
 
 const sigin = () => {
@@ -25,7 +25,7 @@ const sigin = () => {
               height={1000}
             />
           ) : (
-            <Image
+            <ExportedImage
               src={sisuIllustration}
               alt='sign-in sign-up illustration'
               width={1000}
@@ -51,7 +51,7 @@ const sigin = () => {
                           height={'auto'}
                         />
                       ) : (
-                        <Image
+                        <ExportedImage
                           src={logo}
                           alt='GenesiX Logo'
                           width={100}
