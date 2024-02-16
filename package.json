@@ -26,6 +26,7 @@
   "devDependencies": {
     "eslint": "^8.28.0",
     "eslint-config-turbo": "latest",
+    "next-image-export-optimizer": "^1.12.3",
     "turbo": "^1.8.3"
   }
 }
