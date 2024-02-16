@@ -9,7 +9,7 @@
     "clean": "rimraf .turbo .next",
     "process-twd": "rimraf tw-styles.js && node process-twd.js",
     "build": "pnpm run process-twd && next build && next-image-export-optimizer",
-    "start": "next start",
+    "serve": "pnpx serve dist",
     "lint": "next lint"
   },
   "dependencies": {

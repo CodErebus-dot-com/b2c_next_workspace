@@ -12,6 +12,9 @@ node_modules
 .next
 out
 
+# next-bundle-analyzer
+analyze
+
 # Production
 build
 dist
