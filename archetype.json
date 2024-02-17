@@ -1,0 +1,9 @@
+{
+  "apps": {
+    "signin": {
+      "appType": "next",
+      "archType": ""
+    }
+  },
+  "packages": {}
+}
