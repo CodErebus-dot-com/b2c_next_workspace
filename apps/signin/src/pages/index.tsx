@@ -7,8 +7,8 @@ import logoBlur from "@images/Genesis_logo.svg";
 import sisuIllustration from "@images/OTP-Authentication-Security.png";
 import sisuIllustrationBlur from "@images/OTP-Authentication-Security.svg";
 import { Inter } from "next/font/google";
-import Image from "next/image";
-// import ExportedImage from 'next-image-export-optimizer'
+// import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { Suspense } from "react";
 import signinStyles from "../styles/signinStyles";
 
@@ -29,7 +29,7 @@ export default function Home() {
                 alt='sign-in sign-up illustration'
               />
             ) : (
-              <Image
+              <ExportedImage
                 src={sisuIllustration}
                 alt='sign-in sign-up illustration'
                 width={1000}
@@ -55,7 +55,7 @@ export default function Home() {
                             alt='GenesisX logo'
                           />
                         ) : (
-                          <Image
+                          <ExportedImage
                             src={logo}
                             alt='GenesiX Logo'
                             width={100}

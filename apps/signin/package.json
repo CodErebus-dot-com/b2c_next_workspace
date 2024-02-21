@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "rimraf .next && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
-    "process-tw": "rimraf tw-styles.js && node src/pages/api/tailwind.js",
-    "build": "pnpm run process-tw && next build",
+    "process-tw": "rimraf tw-styles.js && node src/scripts/tailwind.js",
+    "build": "node src/scripts/build.js",
     "clean": "rimraf .turbo .next",
     "start": "next start",
     "lint": "next lint",
@@ -19,13 +19,13 @@
     "@module-federation/nextjs-mf": "8.1.10",
     "@module-federation/utilities": "3.0.5",
     "@nextui-org/react": "2.2.9",
+    "critters": "^0.0.19",
     "markdown-to-jsx": "7.4.1",
     "next": "13.5.6",
     "react": "^18.2",
     "react-dom": "^18.2",
-    "webpack": "^5.90.2",
-    "critters": "^0.0.19",
-    "styled-jsx": "^5.1.2"
+    "styled-jsx": "^5.1.2",
+    "webpack": "^5.90.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.4.2",
