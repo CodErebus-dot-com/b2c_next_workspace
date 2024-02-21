@@ -1,5 +1,5 @@
 import tailwindStyles from "@root/tw-styles";
-
+import { Suspense } from "react";
 // CustomScript is a component that adds a script and a style tag to the DOM.
 // The script will apply the classNames from the dummy-api component to the api component.
 // The style tag will inject the processed tw-styles into the DOM.
@@ -9,17 +9,18 @@ const CustomScript = () => {
       {/* the generated tailwindStyles should be used only for production */}
       {process.env.NEXT_PUBLIC_NODE_ENV === "production" && (
         <style
-          data-test-id='test-style'
+          data-test-id='tailwind-style'
           dangerouslySetInnerHTML={{
             __html: tailwindStyles,
           }}
         />
       )}
-      <script
-        data-test-id='test-script'
-        id='custom-script'
-        dangerouslySetInnerHTML={{
-          __html: `
+      <Suspense fallback='Loading...'>
+        <script
+          data-test-id='translation-script'
+          id='custom-script'
+          dangerouslySetInnerHTML={{
+            __html: `
           function logError(apiElems, dummyApiElems) {
             const errorDetails = {
               apiElemCount: apiElems.length,
@@ -91,8 +92,9 @@ const CustomScript = () => {
           var isDev = window.location.hostname === "localhost"; // adjust according to your setup
           isDev ? window.onload = applyClassNamesToElements : applyClassNamesToElements();
         `,
-        }}
-      />
+          }}
+        />
+      </Suspense>
     </>
   );
 };
