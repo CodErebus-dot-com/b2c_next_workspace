@@ -83,7 +83,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       styled-jsx:
         specifier: ^5.1.2
-        version: 5.1.2(react@18.2.0)
+        version: 5.1.2(@babel/core@7.23.9)(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: ^18.0.0
@@ -180,13 +180,16 @@ importers:
         version: link:../../packages/ui
       '@module-federation/nextjs-mf':
         specifier: 8.1.10
-        version: 8.1.10(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)(webpack@5.90.2)
+        version: 8.1.10(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)(styled-jsx@5.1.2)(webpack@5.90.2)
       '@module-federation/utilities':
         specifier: 3.0.5
         version: 3.0.5(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)(webpack@5.90.2)
       '@nextui-org/react':
         specifier: 2.2.9
         version: 2.2.9(@types/react@18.2.55)(framer-motion@10.18.0)(react-dom@18.2.0)(react@18.2.0)(tailwind-variants@0.2.0)(tailwindcss@3.4.1)
+      critters:
+        specifier: ^0.0.19
+        version: 0.0.19
       markdown-to-jsx:
         specifier: 7.4.1
         version: 7.4.1(react@18.2.0)
@@ -199,6 +202,9 @@ importers:
       react-dom:
         specifier: ^18.2
         version: 18.2.0(react@18.2.0)
+      styled-jsx:
+        specifier: ^5.1.2
+        version: 5.1.2(@babel/core@7.23.9)(react@18.2.0)
       webpack:
         specifier: ^5.90.2
         version: 5.90.2
@@ -2449,7 +2455,7 @@ packages:
       webpack: 5.90.2
     dev: false
 
-  /@module-federation/nextjs-mf@8.1.10(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)(webpack@5.90.2):
+  /@module-federation/nextjs-mf@8.1.10(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)(styled-jsx@5.1.2)(webpack@5.90.2):
     resolution: {integrity: sha512-lJL3flk2twLu430W1uEB1y+v0sEIfaUFDGFFBm4r4nN6Y0NIIbO5oLyhljgdGgh7pyv7HJLdzlZBlP8l2hak/g==}
     peerDependencies:
       next: ^12 || ^13 || ^14
@@ -2472,6 +2478,7 @@ packages:
       next: 13.5.6(@babel/core@7.23.9)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      styled-jsx: 5.1.2(@babel/core@7.23.9)(react@18.2.0)
       webpack: 5.90.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -9460,7 +9467,7 @@ packages:
       client-only: 0.0.1
       react: 18.2.0
 
-  /styled-jsx@5.1.2(react@18.2.0):
+  /styled-jsx@5.1.2(@babel/core@7.23.9)(react@18.2.0):
     resolution: {integrity: sha512-FI5r0a5ED2/+DSdG2ZRz3a4FtNQnKPLadauU5v76a9QsscwZrWggQKOmyxGGP5EWKbyY3bsuWAJYzyKaDAVAcw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -9473,6 +9480,7 @@ packages:
       babel-plugin-macros:
         optional: true
     dependencies:
+      '@babel/core': 7.23.9
       client-only: 0.0.1
       react: 18.2.0
     dev: false
