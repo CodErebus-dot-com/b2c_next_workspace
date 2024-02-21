@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 execSync(
-  "pnpm run process-tw && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+  "pnpm run process-tw && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build && next-image-export-optimizer",
   { stdio: "inherit" }
 );
 
