@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "rimraf .next && cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev",
     "process-tw": "rimraf tw-styles.js && node src/pages/api/tailwind.js",
-    "build": "pnpm run process-tw && next telemetry disable && NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "build": "pnpm run process-tw && next build",
     "clean": "rimraf .turbo .next",
     "start": "next start",
     "lint": "next lint",
