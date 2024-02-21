@@ -80,9 +80,7 @@ export default function Home() {
       {/* styling using styled jsx approach */}
       <style jsx>{signinStyles}</style>
 
-      <Suspense>
-        <CustomScript />
-      </Suspense>
+      <CustomScript />
     </main>
   );
 }
