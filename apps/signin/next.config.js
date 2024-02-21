@@ -18,13 +18,17 @@ const mfConfig = {
 };
 
 const nextConfig = {
+  output: "export",
   sassOptions: {},
   reactStrictMode: true,
-  transpilePackages: ["@acme/ui"], // pass the modules you would like to see transpiled
+  experimental: {
+    optimizeCss: true,
+  },
+  distDir: "dist",
+  transpilePackages: ["@acme/ui"],
   swcMinify: true,
   webpack(config, options) {
     config.plugins.push(new NextFederationPlugin(mfConfig));
-
     return config;
   },
 };
