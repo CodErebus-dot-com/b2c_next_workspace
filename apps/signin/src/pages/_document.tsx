@@ -13,6 +13,10 @@ const Document = () => {
           content='The Azure Active Directory SignIn page'
           key='description'
         />
+        <meta
+          name='description'
+          content='The Azure Active Directory SignIn page'
+        />
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
