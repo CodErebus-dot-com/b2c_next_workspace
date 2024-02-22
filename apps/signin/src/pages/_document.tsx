@@ -13,6 +13,7 @@ const Document = () => {
           content='The Azure Active Directory SignIn page'
           key='description'
         />
+        <meta name='title' content='Azure AD SignIn' />
         <meta
           name='description'
           content='The Azure Active Directory SignIn page'
