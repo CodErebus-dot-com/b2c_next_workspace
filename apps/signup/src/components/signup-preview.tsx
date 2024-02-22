@@ -1,22 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Button } from "@acme/ui";
 import {
   Box,
   FormLabel,
   Input,
   Link,
-  UnorderedList,
   ListItem,
   Text,
-} from '@chakra-ui/react'
-import { Button } from '@acme/ui'
+  UnorderedList,
+} from "@chakra-ui/react";
 
 // FormPreview is a component that is used to preview what the form will look like when it is integrated with the AD B2C custom policy.
 const SignupPreview = () => {
   const highlightError = {
-    '&.highlightError': {
-      borderColor: 'brand.error',
+    "&.highlightError": {
+      borderColor: "brand.error",
     },
-  }
+  };
 
   return (
     <>
@@ -81,28 +81,14 @@ const SignupPreview = () => {
                   </UnorderedList>
                   <Box color='brand.error' className='italic'></Box>
                   <Box className='flex justify-center'>
-                    <Button
-                      id='emailVerificationControl_but_send_code'
-                      className='my-8 btn-blue'
-                    >
+                    <Button className='my-8 btn-blue'>
                       Send verification code
                     </Button>
-                    <Button
-                      id='emailVerificationControl_but_verify_code'
-                      className='my-8 mx-2 btn-blue'
-                    >
-                      Verify code
-                    </Button>
-                    <Button
-                      id='emailVerificationControl_but_send_new_code'
-                      className='my-8 mx-2 btn-blue'
-                    >
+                    <Button className='my-8 mx-2 btn-blue'>Verify code</Button>
+                    <Button className='my-8 mx-2 btn-blue'>
                       Send new code
                     </Button>
-                    <Button
-                      id='emailVerificationControl_but_change_claims'
-                      className='my-8 mx-2 btn-blue'
-                    >
+                    <Button className='my-8 mx-2 btn-blue'>
                       Change e-mail
                     </Button>
                   </Box>
@@ -152,7 +138,7 @@ const SignupPreview = () => {
         </Box>
       </form>
     </>
-  )
-}
+  );
+};
 
-export default SignupPreview
+export default SignupPreview;
