@@ -3,14 +3,14 @@
 export const SignupTestApi = () => {
   return (
     <>
-      <div style={{ display: 'none' }}>
+      <div style={{ display: "none" }}>
         <p></p>
       </div>
       <form>
         <div className='error'>Error messages will be handled by AD B2C.</div>
-        <div style={{ display: 'none' }}></div>
-        <div style={{ display: 'none' }}></div>
-        <div style={{ display: 'none' }}></div>
+        <div style={{ display: "none" }}></div>
+        <div style={{ display: "none" }}></div>
+        <div style={{ display: "none" }}></div>
         <div>
           <ul>
             <li>
@@ -19,51 +19,51 @@ export const SignupTestApi = () => {
                 <div></div>
                 <div>
                   <div>
-                    <div style={{ display: 'none' }}>
+                    <div style={{ display: "none" }}>
                       Verification is necessary. Please click Send button.
                     </div>
                   </div>
                   <div>
-                    <div style={{ display: 'none' }}></div>
+                    <div style={{ display: "none" }}></div>
                   </div>
                   <div>
-                    <div style={{ display: 'none' }}></div>
+                    <div style={{ display: "none" }}></div>
                   </div>
                   <ul>
-                    <li style={{ display: 'inline' }}>
+                    <li style={{ display: "inline" }}>
                       <div>
                         <label>Email Address</label>
                         <div>Sample input level error</div>
                         <input type='email' className='highlightError' />
-                        <a href='javascript:void(0)'>What is this?</a>
+                        <a href='/'>What is this?</a>
                       </div>
                     </li>
-                    <li style={{ display: 'none' }}>
+                    <li style={{ display: "none" }}>
                       <div>
                         <label>Verification Code</label>
                         <div></div>
                         <input type='text' disabled={true} />
-                        <a href='javascript:void(0)'>What is this?</a>
+                        <a href='/'>What is this?</a>
                       </div>
                     </li>
                   </ul>
-                  <div style={{ display: 'none' }}></div>
+                  <div style={{ display: "none" }}></div>
                   <div>
-                    <button type='button' style={{ display: 'inline' }}>
+                    <button type='button' style={{ display: "inline" }}>
                       Send verification code
                     </button>
-                    <button type='button' style={{ display: 'none' }}>
+                    <button type='button' style={{ display: "none" }}>
                       Verify code
                     </button>
-                    <button type='button' style={{ display: 'none' }}>
+                    <button type='button' style={{ display: "none" }}>
                       Send new code
                     </button>
-                    <button type='button' style={{ display: 'none' }}>
+                    <button type='button' style={{ display: "none" }}>
                       Change e-mail
                     </button>
                   </div>
                 </div>
-                <a href='javascript:void(0)'>What is this?</a>
+                <a href='/'>What is this?</a>
               </div>
             </li>
             <li>
@@ -71,7 +71,7 @@ export const SignupTestApi = () => {
                 <label>New Password</label>
                 <div></div>
                 <input type='password' />
-                <a href='javascript:void(0)'>What is this?</a>
+                <a href='/'>What is this?</a>
               </div>
             </li>
             <li>
@@ -79,7 +79,7 @@ export const SignupTestApi = () => {
                 <label>Confirm New Password</label>
                 <div></div>
                 <input type='password' />
-                <a href='javascript:void(0)'>What is this?</a>
+                <a href='/'>What is this?</a>
               </div>
             </li>
           </ul>
@@ -95,5 +95,5 @@ export const SignupTestApi = () => {
         </div>
       </form>
     </>
-  )
-}
+  );
+};

@@ -6,7 +6,14 @@ import { Head, Html, Main, NextScript } from "next/document";
 const Document = () => {
   return (
     <Html>
-      <Head />
+      <Head>
+        <meta property='og:title' content='Azure AD SignIn' key='title' />
+        <meta
+          property='og:description'
+          content='The Azure Active Directory SignIn page'
+          key='description'
+        />
+      </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Main />

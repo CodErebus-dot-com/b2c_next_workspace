@@ -6,7 +6,7 @@ const colors = {
     800: "#153e75",
     700: "#2a69ac",
     link: "#3366cc",
-    error: "#e53e3e",
+    error: "#af0808",
   },
 };
 

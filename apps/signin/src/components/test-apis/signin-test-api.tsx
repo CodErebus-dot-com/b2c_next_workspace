@@ -20,7 +20,7 @@ export const SigninTestApi = () => {
         <div>
           <div>
             <label>Password</label>
-            <a>Forgot your password?</a>
+            <a href='/'>Forgot your password?</a>
           </div>
           <div>
             <p></p>
@@ -39,7 +39,7 @@ export const SigninTestApi = () => {
       <div>
         <p>
           Don't have an account?
-          <a>Sign up now</a>
+          <a href='/'>Sign up now</a>
         </p>
       </div>
     </form>
