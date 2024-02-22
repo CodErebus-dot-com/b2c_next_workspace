@@ -3,6 +3,10 @@
     "signin": {
       "appType": "next",
       "archType": ""
+    },
+    "signup": {
+      "appType": "next",
+      "archType": ""
     }
   },
   "packages": {}
