@@ -18,6 +18,7 @@ const Document = () => {
           name='description'
           content='The Azure Active Directory SignUp page'
         />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
