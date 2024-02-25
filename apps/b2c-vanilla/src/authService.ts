@@ -18,6 +18,41 @@ export const signInRedirect = () => {
   window.location.assign(url);
 };
 
+function openPopup(
+  url: string,
+  title: string,
+  w: number = 500,
+  h: number = 600
+) {
+  const dualScreenLeft =
+    window.screenLeft !== undefined ? window.screenLeft : window.screenX;
+  const dualScreenTop =
+    window.screenTop !== undefined ? window.screenTop : window.screenY;
+
+  const width = window.innerWidth
+    ? window.innerWidth
+    : document.documentElement.clientWidth
+      ? document.documentElement.clientWidth
+      : screen.width;
+  const height = window.innerHeight
+    ? window.innerHeight
+    : document.documentElement.clientHeight
+      ? document.documentElement.clientHeight
+      : screen.height;
+
+  const left = width / 2 - w / 2 + dualScreenLeft;
+  const top = height / 2 - h / 2 + dualScreenTop;
+  const newWindow = window.open(
+    url,
+    title,
+    `scrollbars=yes, width=${w}, height=${h}, top=${top}, left=${left}`
+  ) as Window;
+
+  newWindow.focus();
+
+  return newWindow;
+}
+
 export const signInPopup = () => {
   const {
     clientId,
@@ -27,31 +62,27 @@ export const signInPopup = () => {
     responseType,
     scope,
   } = authConfig.auth;
+  track("Signin");
   const authEndpoint = `${authority}/oauth2/v2.0/authorize`;
   const url = `${authEndpoint}?client_id=${clientId}&response_type=${responseType}&redirect_uri=${redirectUri}&response_mode=${responseMode}&scope=${scope}&nonce=${generateNonce()}`;
 
-  const popup = window.open(url, "_blank", "width=600,height=600");
-  popup?.focus();
-  const pollTimer = window.setInterval(() => {
-    const redirectedUri = new URL(window.location.href).toString();
-    if (redirectedUri === redirectUri) {
-      setIdToken(); // needs to be called in page.tsx
-      window.location.reload();
-      popup?.close();
+  // Open the popup window
+  const popupWindow = openPopup(url, "ad_signin_window");
+
+  // Listen for a message from the popup window
+  window.addEventListener("message", (event) => {
+    if (event.origin !== window.location.origin) {
+      return;
     }
-    window.clearInterval(pollTimer);
-  }, 200);
 
-  // focus back to the main window (window with url = redirectUri) and reload it
-  window.focus();
-  window.location.reload();
-};
-
-const clearAuthData = () => {
-  Cookies.remove("id_token"); // clear 'id_token' cookie
-  sessionStorage.removeItem("authNonce"); // clear 'authNonce' session storage
-  window.history.replaceState({}, document.title, window.location.pathname); // remove 'id_token' param from url
-  window.location.reload(); // refresh the page
+    // Check if the message is a success message
+    if (event.data === "login_success") {
+      popupWindow.close();
+      if (getIdToken()) {
+        window.location.reload();
+      }
+    }
+  });
 };
 
 export const signOutPopup = () => {
@@ -59,15 +90,57 @@ export const signOutPopup = () => {
   const clientRequestId = uuidv4();
   const url = `${authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${redirectUri}&client-request-id=${clientRequestId}`;
 
-  const popup = window.open(url, "_blank", "width=600,height=600");
-  popup?.focus();
-  const pollTimer = window.setInterval(() => {
-    if (popup?.closed) {
-      window.clearInterval(pollTimer);
-      clearAuthData();
+  // Open the popup window
+  const popupWindow = openPopup(url, "ad_signout_window");
+
+  // Clear the authentication data in the main window
+  clearAuthData();
+  // Listen for a message from the popup window indicating that sign-out was successful
+  window.addEventListener("message", (event) => {
+    console.log("even listener ", event.data);
+    // Check the origin of the message
+    if (event.origin !== window.location.origin) {
+      return;
     }
-  }, 200);
-  popup?.close();
+
+    // Check if the message is a success message
+    if (event.data === "logout_success") {
+      console.log("inside if");
+      // Close the popup window
+      popupWindow.close();
+
+      if (!getIdToken()) {
+        window.location.reload();
+      }
+    }
+  });
+};
+
+// export const signOutPopup = () => {
+//   const { authority, redirectUri } = authConfig.auth;
+//   const clientRequestId = uuidv4();
+//   const url = `${authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${redirectUri}&client-request-id=${clientRequestId}`; // hits logout url
+//   track("Signout");
+
+//   // Open the popup window
+//   const popupWindow = openPopup(url, "ad_signout_window");
+
+//   // Polling to check if popup window is closed
+//   const checkPopupClosed = setInterval(() => {
+//     if (popupWindow.closed) {
+//       clearInterval(checkPopupClosed);
+//       clearAuthData(); // should be called only after logout url is hit
+//       window.location.reload();
+//     }
+//   }, 1000);
+// };
+
+const clearAuthData = () => {
+  console.log("clearAuthData");
+  Cookies.remove("id_token"); // clear 'id_token' cookie
+  sessionStorage.removeItem("authNonce"); // clear 'authNonce' session storage
+  window.history.replaceState({}, document.title, window.location.pathname); // remove 'id_token' param from url
+  window.location.reload(); // refresh the page
 };
 
 export const signOutRedirect = () => {
@@ -110,9 +183,6 @@ export const setIdToken = () => {
     expires.setTime(expires.getTime() + 60 * 60 * 1000); // Set cookie to expire in 1 hour
 
     try {
-      const expires = new Date();
-      expires.setTime(expires.getTime() + 60 * 60 * 1000); // Set cookie to expire in 1 hour
-
       Cookies.set("id_token", idToken, {
         expires,
         path: "/",
@@ -121,6 +191,8 @@ export const setIdToken = () => {
       });
 
       console.log("Cookie set successfully!");
+      isInPopup() &&
+        window.opener.postMessage("login_success", window.location.origin);
     } catch (err) {
       console.log(`Failed to set cookie: ${err}`);
     }
@@ -133,4 +205,22 @@ export const setIdToken = () => {
 export const getIdToken = () => {
   const idToken = Cookies.get("id_token");
   return idToken;
+};
+
+export const cleanLogout = () => {
+  console.log("from cleanLogout ", !getIdToken());
+  console.log("from cleanLogout ", isInPopup());
+
+  !getIdToken() &&
+    //   isInPopup() &&
+    window.opener?.postMessage("logout_success", window.location.origin);
+};
+
+const isInPopup = () => {
+  return (
+    typeof window !== "undefined" &&
+    !!window.opener &&
+    window.opener !== window &&
+    typeof window.name === "string"
+  );
 };
