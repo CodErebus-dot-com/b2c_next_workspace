@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { getIdToken, signOutPopup, signOutRedirect } from '../authService';
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
+import { useEffect, useState } from "react";
+import { getIdToken, signOutPopup, signOutRedirect } from "../authService";
 
 type DECODED_INSTANCE = {
   iss: string;
@@ -22,7 +22,7 @@ type DECODED_INSTANCE = {
   idp?: string;
 };
 
-type TInstance = {
+export type TInstance = {
   decodedInstance: DECODED_INSTANCE | null;
   signOutPopup: () => void;
   signOutRedirect: () => void;
@@ -51,7 +51,7 @@ export const useInstance = () => {
         //   const logoutUrl = `${decodedInstance.iss}/oauth2/v2.0/logout?post_logout_redirect_uri=${window.location.origin}`;
         //   window.location.assign(logoutUrl);
         // },
-        signOutRedirect
+        signOutRedirect,
       };
 
       setInstance(instance);
