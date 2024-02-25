@@ -16,9 +16,9 @@ export const SignOutButton = () => {
           <MenuItem onClick={instance?.signOutRedirect}>
             SignOut via Redirect
           </MenuItem>
-          {/* <MenuItem onClick={instance?.signOutPopup}>
+          <MenuItem onClick={instance?.signOutPopup}>
             SignOut via Popup
-          </MenuItem> */}
+          </MenuItem>
         </MenuList>
       </Menu>
     </div>
