@@ -90,50 +90,14 @@ export const signOutPopup = () => {
   const clientRequestId = uuidv4();
   const url = `${authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${redirectUri}&client-request-id=${clientRequestId}`;
 
-  // Open the popup window
   const popupWindow = openPopup(url, "ad_signout_window");
 
-  // Clear the authentication data in the main window
-  clearAuthData();
-  // Listen for a message from the popup window indicating that sign-out was successful
-  window.addEventListener("message", (event) => {
-    console.log("even listener ", event.data);
-    // Check the origin of the message
-    if (event.origin !== window.location.origin) {
-      return;
-    }
-
-    // Check if the message is a success message
-    if (event.data === "logout_success") {
-      console.log("inside if");
-      // Close the popup window
-      popupWindow.close();
-
-      if (!getIdToken()) {
-        window.location.reload();
-      }
-    }
-  });
+  setTimeout(() => {
+    popupWindow.close();
+    clearAuthData();
+    window.location.reload();
+  }, 1000);
 };
-
-// export const signOutPopup = () => {
-//   const { authority, redirectUri } = authConfig.auth;
-//   const clientRequestId = uuidv4();
-//   const url = `${authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${redirectUri}&client-request-id=${clientRequestId}`; // hits logout url
-//   track("Signout");
-
-//   // Open the popup window
-//   const popupWindow = openPopup(url, "ad_signout_window");
-
-//   // Polling to check if popup window is closed
-//   const checkPopupClosed = setInterval(() => {
-//     if (popupWindow.closed) {
-//       clearInterval(checkPopupClosed);
-//       clearAuthData(); // should be called only after logout url is hit
-//       window.location.reload();
-//     }
-//   }, 1000);
-// };
 
 const clearAuthData = () => {
   console.log("clearAuthData");
@@ -189,10 +153,6 @@ export const setIdToken = () => {
         secure: true, // Set secure flag for https environments
         sameSite: "strict",
       });
-
-      console.log("Cookie set successfully!");
-      isInPopup() &&
-        window.opener.postMessage("login_success", window.location.origin);
     } catch (err) {
       console.log(`Failed to set cookie: ${err}`);
     }
@@ -207,16 +167,7 @@ export const getIdToken = () => {
   return idToken;
 };
 
-export const cleanLogout = () => {
-  console.log("from cleanLogout ", !getIdToken());
-  console.log("from cleanLogout ", isInPopup());
-
-  !getIdToken() &&
-    //   isInPopup() &&
-    window.opener?.postMessage("logout_success", window.location.origin);
-};
-
-const isInPopup = () => {
+export const isInPopup = () => {
   return (
     typeof window !== "undefined" &&
     !!window.opener &&
