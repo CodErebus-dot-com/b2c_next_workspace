@@ -12,18 +12,18 @@ Most projects create their own design systems and component libraries which they
 
 ## Solution
 
-This PoC addresses the limitation by providing a solution that allows developers to customize the login and signup pages of Azure ADB2C using different styling solutions. It consists of two applications: app and b2c-vanilla. The app application is responsible for customizing the Azure ADB2C pages, while the b2c-vanilla application is just to demonstrate the integration of Azure ADB2C without relying on a third-party library like MSAL.
+This PoC addresses the limitation by providing a solution that allows developers to customize the login and signup pages of Azure ADB2C using different styling solutions. It consists of three applications: signin, signup and b2c-vanilla. The signin and signup apps are responsible for customizing the Azure ADB2C signin and signup pages respectively, while the b2c-vanilla application is just to demonstrate the integration of Azure ADB2C without relying on a third-party library like MSAL.
 
 ## Application Details
 
-`app`: The app is a Nextjs application designed to demonstrate how to customize Azure's login and signup pages using various CSS solutions. The motivation behind this is to show the flexibility of different styling solutions for customization purposes. The following CSS solutions are used:
+`signin` & `signup`: They are Nextjs apps designed to demonstrate how to customize Azure's signin and signup pages using various CSS solutions. The motivation behind this is to show the flexibility of different styling solutions for customization purposes. The following CSS solutions are used:
 
 - Chakra UI
 - CSS Modules
 - Styled-jsx
 - TailwindCSS
 
-The app contains a DummyApi component, which is an exact replica of the ADB2C's UI API. This component serves as a local environment for testing and previewing the customizations made to the login and signup pages. After deploying the app which also contains a script, the customizations are automatically applied to the actual ADB2C's actual UI API in production.
+They contain a DummyApi component, which is an exact replica of the ADB2C's UI API. This component serves as a local environment for testing and previewing the customizations made to the sigin and signup pages. After deploying these apps which also contains a script, the customizations are automatically applied to the actual ADB2C's actual UI API in production.
 
 `b2c-vanilla`: The b2c-vanilla app demonstrates how to integrate Azure ADB2C without relying on a third-party library like MSAL provided by Azure. This app contains a navigation bar and a login button. Clicking the login button redirects the user to the customized interface. Once the user logs in, the login button changes to a logout button.
 
@@ -35,21 +35,27 @@ The app contains a DummyApi component, which is an exact replica of the ADB2C's 
 pnpm install
 ```
 
-2. To run the `app` app:
+2. To run the `signin` app:
 
 ```sh
-pnpm --filter app dev
+pnpm dev:signin
 ```
 
-3. To run the `b2c-vanilla` app:
+3. Similarly, to run the `signup` app:
 
 ```sh
-pnpm --filter b2c-vanilla dev
+pnpm dev:signup
+```
+
+4. To run the `b2c-vanilla` app:
+
+```sh
+pnpm dev:b2c
 ```
 
 > **NOTE:** Do not foget to add the AD based configs in apps/b2c-vanilla/authConfig.ts
 
-4. To build all the workspaces (apps and shared packages),
+5. To build all the workspaces (apps and shared packages),
 
 ```sh
 pnpm build
@@ -60,18 +66,15 @@ pnpm build
 - After the customization inside of `app` app, run the `build` command and deploy it to your favourite service. (I have used Vercel for this PoC).
 - Take the deployment url and provide it to ADB2C's Page as the `Custom Page URI` in Page Layouts.
 
-## Limitations
+## Lighthouse
 
-This PoC is still a WIP and thus comes with limitations:
+- Following is the lighthouse score for both the signin and signout pages:
 
-Not the best solution in terms of performance and the builds are heavier compared to the recommended approach. Azure has to make request to the deployed url to get the resource which is blocking causing **_waterfall problem_** everytime the page is requested.
+![SignIn](lighthouse.png)
 
 ## Roadmap
 
 The immediate roadmap items are mostly optimazation for now:
 
-- **Script**: Some alternative algorithm to auto apply classes
-- **App**: Regular nextjs/react optimization (use [next-image-export-optimizer](https://www.npmjs.com/package/next-image-export-optimizer) for images)
-- **Third Party**: Solutions to make other assets (svgs etc) optimzed
-- **Popup/Modal Support**: Adding modal alternative without relying on msal
+- **Script**: Make the translation algorithm more robust
 - **With MSAL**: Integration with @msal/react
