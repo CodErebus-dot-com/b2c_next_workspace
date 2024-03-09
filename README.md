@@ -76,5 +76,7 @@ pnpm build
 
 The immediate roadmap items are mostly optimazation for now:
 
+- **Styles**: Add fonts
 - **Script**: Make the translation algorithm more robust
 - **With MSAL**: Integration with @msal/react
+- **Config**: Make the solution generic (if possible) and configurable (plugin and use)
