@@ -2,7 +2,8 @@
 
 This project is a Proof of Concept (PoC) that demonstrates how to integrate Azure Active Directory B2C (ADB2C) into a React/Nextjs application without using external packages like @msal/react. It also showcases how to customize the AD user interfaces also in a React/Nextjs application.
 
-> **NOTE:** This README is also a WIP and **_might_** not be 100% accurate.
+> [!WARNING]
+> This README is also a WIP and **_might_** not be 100% accurate.
 
 ## Problem Statement
 
@@ -13,6 +14,10 @@ Most projects create their own design systems and component libraries which they
 ## Solution
 
 This PoC addresses the limitation by providing a solution that allows developers to customize the login and signup pages of Azure ADB2C using different styling solutions. It consists of three applications: signin, signup and b2c-vanilla. The signin and signup apps are responsible for customizing the Azure ADB2C signin and signup pages respectively, while the b2c-vanilla application is just to demonstrate the integration of Azure ADB2C without relying on a third-party library like MSAL.
+
+## High Level Design
+
+![HLD](architecture.png)
 
 ## Application Details
 
@@ -53,7 +58,8 @@ pnpm dev:signup
 pnpm dev:b2c
 ```
 
-> **NOTE:** Do not foget to add the AD based configs in apps/b2c-vanilla/authConfig.ts
+> [!NOTE]
+> Do not foget to add the AD based configs in apps/b2c-vanilla/authConfig.ts
 
 5. To build all the workspaces (apps and shared packages),
 
