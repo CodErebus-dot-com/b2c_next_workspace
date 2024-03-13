@@ -1,11 +1,17 @@
 {
   "name": "b2c-next-workspace",
+  "description": "POC on ADB2C signin/signup flow integration in a Nextjs app with easy styling and customization enabled",
   "license": "MIT",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+  "repository": {
+    "url": "https://github.com/CodErebus-dot-com/b2c_next_workspace",
+    "type": "git"
+  },
+  "homepage": "https://github.com/CodErebus-dot-com/b2c_next_workspace/blob/main/README.md",
   "keywords": [
     "adb2c",
     "azure",
