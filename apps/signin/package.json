@@ -16,8 +16,6 @@
   },
   "dependencies": {
     "@acme/ui": "workspace:*",
-    "@module-federation/nextjs-mf": "8.1.10",
-    "@module-federation/utilities": "3.0.5",
     "critters": "^0.0.19",
     "markdown-to-jsx": "7.4.1",
     "next": "13.5.6",
